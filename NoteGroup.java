@@ -23,9 +23,11 @@ public class NoteGroup{
     // an add/remove note dynamic. 
     public void addNote(Note note){
         notes.add(note);
+        size++;
     }
     public void removeNote(Note note){
         notes.remove(note);
+        size--;
     }
 
     public int getSize(){
