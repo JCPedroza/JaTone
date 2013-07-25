@@ -14,8 +14,14 @@ public class Chord extends NoteGroup{
         super(newNotes);
         name = newName;
     }
+    public Chord(List<Note> newNotes){    
+        this(newNotes, "none");
+    }
     public Chord(Note[] newNotes, String newName){
         this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
+    }
+    public Chord(Note[] newNotes){
+        this(newNotes, "none");
     }
 
     //Setters & Getters

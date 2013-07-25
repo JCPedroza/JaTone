@@ -12,9 +12,16 @@ public class Scale extends NoteGroup{
         super(newNotes);
         name = newName;
     }
+    public Scale(List<Note> newNotes){    
+        this(newNotes, "none");
+    }
     public Scale(Note[] newNotes, String newName){
         this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
+    public Scale(Note[] newNotes){
+        this(newNotes, "none");
+    }
+  
 
     //Setters & Getters
     public void setName(String newName){
@@ -23,5 +30,4 @@ public class Scale extends NoteGroup{
     public String getName(){
         return name;
     }
-
 }
