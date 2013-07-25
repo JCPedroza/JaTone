@@ -38,7 +38,12 @@ public class NoteGroup{
         return notes;
     } 
     
+    // Return an array of strings with the names of the notes
     public String[] getNotesAsString(){
-    	return notes.toArray(new String[notes.size()]); 
+        List<String> noteList = new ArrayList<String>();
+        for (Note e : notes){
+        	noteList.add(e.getName());
+        }
+        return noteList.toArray(new String[noteList.size()]);
     }
 }
