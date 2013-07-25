@@ -37,4 +37,8 @@ public class NoteGroup{
     public List<Note> getNotes(){
         return notes;
     } 
+    
+    public String[] getNotesAsString(){
+    	return notes.toArray(new String[notes.size()]); 
+    }
 }
