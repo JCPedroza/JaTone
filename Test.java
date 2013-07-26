@@ -1,5 +1,4 @@
 import static org.junit.Assert.*;
-
 import java.util.*;
 
 public class Test{
@@ -12,11 +11,13 @@ public class Test{
 	Note[]       aNoteArray = {aNoteA, aNoteC, aNoteE};
 	List<Note>   aNoteList  = Arrays.asList(aNoteA, aNoteC, aNoteE);
 	List<String> aPool      = Arrays.asList("A", "B", "C", "D");
+	String[]     aPool2     = {"Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G"};
 	Chord        aChord1    = new Chord(aNoteArray, "Am");
 	Scale        aScale1    = new Scale(aNoteList, "A aeolian");
 	
-	// Process instance
-	Process    aProcess   = new Process();
+	// Instances
+	Process      aProcess   = new Process();
+	Formulas     formulas   = new Formulas();
 
 	public void runTests(){		
 		// Class Tests
@@ -30,5 +31,18 @@ public class Test{
 		assertEquals(aProcess.stepCount(aNoteA, aNoteC), 3);
 		assertEquals(aProcess.stepCount(aNoteG, aNoteA), 2);
 		assertEquals(aProcess.stepCount(aNoteA, aNoteC, aPool), 2);
+		//scalize()
+		assertEquals(Arrays.toString(aProcess.scalize(aNoteA, formulas.aeolian).getNotesAsString()),
+				     Arrays.toString(new String[] {"A", "B", "C", "D", "E", "F", "G"}));
+		assertEquals(Arrays.toString(aProcess.scalize(aNoteA, formulas.aeolian, aPool2).getNotesAsString()),
+			         Arrays.toString(new String[] {"A", "B", "C", "D", "E", "F", "G"}));
+		assertEquals(Arrays.toString(aProcess.scalize(aNoteC, formulas.ionian).getNotesAsString()),
+			         Arrays.toString(new String[] {"C", "D", "E", "F", "G", "A", "B"}));
+		assertEquals(Arrays.toString(aProcess.scalize(aNoteC, formulas.ionian, aPool).getNotesAsString()),
+		             Arrays.toString(new String[] {"C", "A", "C", "D", "B", "D", "B"}));
+		
+		
+		// :D
+		System.out.println("All test passed! :D");
 	}
 }
