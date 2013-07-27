@@ -9,19 +9,22 @@ public class Chord extends NoteGroup{
     private String name;
 
     // Constructors
-    // Accepts array or List as input, creates an ArralyList with it.
+    // List, String -> Chord
     public Chord(List<Note> newNotes, String newName){
         super(newNotes);
         name = newName;
     }
+    // List -> Chord
     public Chord(List<Note> newNotes){    
         this(newNotes, "none");
     }
+    // Array, String -> Chord
     public Chord(Note[] newNotes, String newName){
         this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
+    // Array -> Chord
     public Chord(Note[] newNotes){
-        this(newNotes, "none");
+        this(new ArrayList<Note>(Arrays.asList(newNotes)), "none");
     }
 
     //Setters & Getters
