@@ -3,31 +3,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Scale extends NoteGroup{
-	// Instance variables
-    private String name;
-
-    // Constructors
-    // Accepts array or List as input, creates an ArralyList with it.
+	
+	// Constructors
+    // List, String -> Scale
     public Scale(List<Note> newNotes, String newName){
-        super(newNotes);
-        name = newName;
+        super(newNotes, newName);
     }
+    // List -> Scale
     public Scale(List<Note> newNotes){    
         super(newNotes);
-        name = makeName(newNotes);
     }
+    // Array, String -> Scale
     public Scale(Note[] newNotes, String newName){
-        this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
+        super(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
+    // Array -> Scale
     public Scale(Note[] newNotes){
-    	this(new ArrayList<Note>(Arrays.asList(newNotes)));
-    }
-
-    //Setters & Getters
-    public void setName(String newName){
-        name = newName;
-    }
-    public String getName(){
-        return name;
+        super(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
 }

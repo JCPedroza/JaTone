@@ -7,16 +7,31 @@ public class NoteGroup{
     // Instance variables
     private int        size;
     private List<Note> notes;
+    private String     name;
 
     // Constructor, accepts array or ArrayList of Note. Creates ArrayList if 
     // argument is an array.
-    public NoteGroup(List<Note> newNotes){
+    // List, String -> ChordGroup
+    public NoteGroup(List<Note> newNotes, String newName){
         notes = newNotes;
         size  = notes.size();
+        name  = newName;
     }
+    // List -> ChordGroup
+    public NoteGroup(List<Note> newNotes){
+    	notes = newNotes;
+    	size = notes.size();
+    	name = makeName(newNotes);
+    }
+    // Array, String -> ChordGroup
+    public NoteGroup(Note[] newNotes, String newName){
+        this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
+    }
+    // Array -> ChordGroup
     public NoteGroup(Note[] newNotes){
-        this(new ArrayList<Note>(Arrays.asList(newNotes)));
+    	this(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
+    
     
     // Methods
     
@@ -33,6 +48,13 @@ public class NoteGroup{
     // Setters & Getters
     // No setter for size since it depends on List size. List notes uses
     // an add/remove note dynamic. 
+    public void setName(String newName){
+    	name = newName;
+    }
+    public String getName(){
+    	return name;
+    }
+    
     public void addNote(Note note){
         notes.add(note);
         size++;
