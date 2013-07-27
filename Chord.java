@@ -27,18 +27,6 @@ public class Chord extends NoteGroup{
     public Chord(Note[] newNotes){
         this(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
-    
-    // Methods
-    
-    // creates a name for the chord based on its notes, changes and returns the name
-    // makeName: List<Note> -> String
-    public String makeName(List<Note> noteList){
-        String returnString = "";
-        for (Note e : noteList){
-        	returnString += e.getName();
-        }
-        return returnString;
-    }
 
     //Setters & Getters
     public void setName(String newName){
