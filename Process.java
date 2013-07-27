@@ -41,7 +41,6 @@ public class Process{
 	public int stepCount(String note1, String note2, String[] pool){
 		return stepCount(new Note(note1), new Note(note2), new ArrayList<String>(Arrays.asList(pool)));
 	}
-
 	
 	// ---------------------------------------------------------------------------------------------
 	// scalize: returns a Scale object derived from the formula applied to the pool with note as root,
@@ -63,19 +62,19 @@ public class Process{
 	public Scale scalize(Note note, int[] formula, String[] pool){
 	    return scalize(note, formula, new ArrayList<String>(Arrays.asList(pool)));
 	}
-	// scalize: overloaded: no input pool, uses default pool 
+	// scalize: Note, int[] -> Scale
 	public Scale scalize(Note note, int[] formula){
 	    return scalize(note, formula, et12Pool); 
 	}
-	// scalize: overloaded: note as string
+	// scalize: String, int[], List -> Scale
 	public Scale scalize(String note, int[] formula, List<String> pool){
 		return scalize(new Note(note), formula, pool);
 	}
-	// scalize: overloaded: note as string, pool as array 
+	// scalize: String, int[], String[] -> Scale
     public Scale scalize(String note, int[] formula, String[] pool){
 		return scalize(new Note(note), formula, new ArrayList<String>(Arrays.asList(pool)));
 	}
-	// scalize: overloaded: note as string, no input pool, uses default pool 
+	// scalize: String, int[] -> Scale
 	public Scale scalize(String note, int[] formula){
 		return scalize(new Note(note), formula, et12Pool);
 	}
