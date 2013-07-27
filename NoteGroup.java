@@ -39,7 +39,7 @@ public class NoteGroup{
     } 
     
     // Return an array of strings with the names of the notes
-    public String[] getNotesAsString(){
+    public String[] getNotesAsStringArray(){
         List<String> noteList = new ArrayList<String>();
         for (Note e : notes){
         	noteList.add(e.getName());
