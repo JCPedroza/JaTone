@@ -13,15 +13,27 @@ public class Scale extends NoteGroup{
         name = newName;
     }
     public Scale(List<Note> newNotes){    
-        this(newNotes, "none");
+        super(newNotes);
+        name = makeName(newNotes);
     }
     public Scale(Note[] newNotes, String newName){
         this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
     public Scale(Note[] newNotes){
-        this(newNotes, "none");
+    	this(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
   
+    // Methods
+    
+    // creates a name for the chord based on its notes, changes and returns the name
+    // makeName: List<Note> -> String
+    public String makeName(List<Note> noteList){
+        String returnString = "";
+        for (Note e : noteList){
+        	returnString += e.getName();
+        }
+        return returnString;
+    }
 
     //Setters & Getters
     public void setName(String newName){
