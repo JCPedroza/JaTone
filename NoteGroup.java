@@ -4,35 +4,57 @@ import java.util.List;
 
 public class NoteGroup{
     
-    // Instance variables
+	// ---------------------------------------------------------------
+    // Instance variables 
     private int        size;
     private List<Note> notes;
     private String     name;
-
+    
+    // --------------------------------------------------------------- 
     // Constructor, accepts array or ArrayList of Note. Creates ArrayList if 
     // argument is an array.
-    // List, String -> ChordGroup
+    // NoteList, String -> ChordGroup
     public NoteGroup(List<Note> newNotes, String newName){
         notes = newNotes;
         size  = notes.size();
         name  = newName;
     }
-    // List -> ChordGroup
+    // NoteList -> ChordGroup
     public NoteGroup(List<Note> newNotes){
     	notes = newNotes;
     	size = notes.size();
-    	name = makeName(newNotes);
+    	name = makeName(notes);
     }
-    // Array, String -> ChordGroup
+    // NoteArray, String -> ChordGroup
     public NoteGroup(Note[] newNotes, String newName){
         this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
-    // Array -> ChordGroup
+    // NoteArray -> ChordGroup
     public NoteGroup(Note[] newNotes){
     	this(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
+    // StringArray, String -> ChordGroup
+    public NoteGroup(String[] newNotes, String newName){
+    	List<Note> noteList = new ArrayList<Note>();
+    	for (String e : newNotes){
+    		noteList.add(new Note(e));
+    	}
+    	notes = noteList;
+    	size  = notes.size();
+    	name  = newName;
+    }
+    // StringArray -> ChordGroup
+    public NoteGroup(String[] newNotes){
+    	List<Note> noteList = new ArrayList<Note>();
+    	for (String e : newNotes){
+    		noteList.add(new Note(e));
+    	}
+    	notes = noteList;
+    	size  = notes.size();
+    	name  = makeName(notes);
+    }
     
-    
+    // ---------------------------------------------------------------
     // Methods
     
     // creates a name for the chord based on its notes, changes and returns the name
@@ -44,7 +66,8 @@ public class NoteGroup{
         }
         return returnString;
     }
-
+    
+    // --------------------------------------------------------------
     // Setters & Getters
     // No setter for size since it depends on List size. List notes uses
     // an add/remove note dynamic. 

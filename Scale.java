@@ -5,20 +5,27 @@ import java.util.Arrays;
 public class Scale extends NoteGroup{
 	
 	// Constructors
-    // List, String -> Scale
+    // NoteList, String -> Scale
     public Scale(List<Note> newNotes, String newName){
         super(newNotes, newName);
     }
-    // List -> Scale
+    // NoteList -> Scale
     public Scale(List<Note> newNotes){    
         super(newNotes);
     }
-    // Array, String -> Scale
+    // NoteArray, String -> Scale
     public Scale(Note[] newNotes, String newName){
         super(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
-    // Array -> Scale
+    // NoteArray -> Scale
     public Scale(Note[] newNotes){
         super(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
+    // StringArray, String -> ChordGroup
+    public Scale(String[] newNotes, String newName){
+    	super(newNotes, newName);
+    }
+    // StringArray -> ChordGroup
+    public Scale(String[] newNotes){
+    	super(newNotes);}
 }
