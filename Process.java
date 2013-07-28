@@ -50,8 +50,8 @@ public class Process{
 	// ---------------------------------------------------------------------------------------------
 	// scalize: Note, int[], List -> Scale
 	public Scale scalize(Note note, int[] formula, List<String> pool){
-	    List<Note> noteList = new ArrayList<Note>();
-	    int currentIndex = pool.indexOf(note.getName());
+	    List<Note> noteList     = new ArrayList<Note>();
+	    int        currentIndex = pool.indexOf(note.getName());
 	    for (int e : formula){
 	    	noteList.add(new Note(pool.get(currentIndex)));
 	    	currentIndex = (currentIndex + e) % pool.size();
@@ -77,6 +77,32 @@ public class Process{
 	// scalize: String, int[] -> Scale
 	public Scale scalize(String note, int[] formula){
 		return scalize(new Note(note), formula, et12Pool);
+	}
+	
+	// ---------------------------------------------------------------------------------------------
+	// harmonize: forms chords derived from the input Scale, using superimposed thirds
+	// depth 1 gives triads, depth 2 gives 7th chords, depth 3 gives 9th chords, etc
+	// default depth is 1 (triad)
+	// Scale or String[], int -> Harmony (a group of chords)
+	// !!! should I be implementing different type of outputs depending on the input?, implement max depth? 
+	// !!! implement default depth, can this method be refactored using recursive dynamics instead of ifs?
+	// !!! implement more cases 
+	// ---------------------------------------------------------------------------------------------
+	// harmonize: Scale, int -> Harmony
+	public Harmony harmonize(Scale scale, int depth){
+		List<Chord> chordList     = new ArrayList<Chord>();
+		int         scaleSize = scale.getSize();
+		if (depth == 1){
+			for (int e = 0; e < scaleSize; e++){
+				chordList.add(new Chord( new Note[]{scale.getNotes().get(e), scale.getNotes().get((e + 2) % scaleSize), 
+						                            scale.getNotes().get((e + 4) % scaleSize)}));
+			}
+		}
+		return new Harmony(chordList);
+	}
+	// harmonize: Scale -> Harmony
+	public Harmony harmonize(Scale scale){
+		return harmonize(scale, 1);
 	}
 	
 }
