@@ -9,6 +9,7 @@ public class Test{
 	Note         aNoteE     = new Note("E", 460, 62, 3, 5, 126, 7);
 	Note         aNoteG     = new Note("G", 470, 66, 6, 6, 6, 6);
 	Note[]       aNoteArray = {aNoteA, aNoteC, aNoteE};
+	String[]     aStrNoteA  = {"A", "B", "C", "D", "E", "F", "G"};
 	List<Note>   aNoteList  = Arrays.asList(aNoteA, aNoteC, aNoteE);
 	List<String> aPool      = Arrays.asList("A", "B", "C", "D");
 	String[]     aPool2     = {"Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G"};
@@ -18,6 +19,7 @@ public class Test{
 	Scale        aScale1    = new Scale(aNoteList, "A aeolian");
 	Scale        aScale2    = new Scale(aNoteList);
 	Scale        aScale3    = new Scale(aNoteArray);
+	Scale        aScale4    = new Scale(aStrNoteA);
 	List<Chord>  aChList    = new ArrayList<Chord>(Arrays.asList(aChord1, aChord2));
 	ChordGroup   aChG1      = new ChordGroup(aChList);
 	// Instances
@@ -25,7 +27,7 @@ public class Test{
 	Formulas     formulas   = new Formulas();
 
 	public void runTests(){		
-		// Class Tests
+		// Class Tests ---------------------------------
 		assertEquals(aNoteA.getName(), "A");
 		assertEquals(aScale1.getName(), "A aeolian");
 		assertEquals(aChord1.getName(), "Am");
@@ -34,6 +36,7 @@ public class Test{
 		assertEquals(aChord2.getName(), "ACE");
 		assertEquals(aScale2.getName(), "ACE");
 		assertEquals(aScale3.getName(), "ACE");
+	    assertEquals(aScale4.getName(), "ABCDEFG");
 		assertEquals(Arrays.toString(aChG1.getChordsAsStringArray()), Arrays.toString(new String[] {"Am", "ACE"}));
 		
 		// Process Tests -------------------------------
