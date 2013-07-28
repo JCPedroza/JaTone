@@ -65,6 +65,10 @@ public class Test{
 		// harmonize() & scalize()
 		assertEquals(Arrays.toString(aProcess.harmonize(aProcess.scalize(aNoteA, formulas.aeolian)).getChordsAsStringArray()), 
 				     Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
+		assertEquals(Arrays.toString(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.ionian), 2).getChordsAsStringArray()), 
+				     Arrays.toString(new String[] {"CEGB", "DFAC", "EGBD", "FACE", "GBDF", "ACEG", "BDFA"}));
+		assertEquals(Arrays.toString(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.ionian), 3).getChordsAsStringArray()),
+				     Arrays.toString(new String[] {"CEGBD", "DFACE", "EGBDF", "FACEG", "GBDFA", "ACEGB", "BDFAC"}));
 		 
 		// :D
 		System.out.println("All test passed! :D");
