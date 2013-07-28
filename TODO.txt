@@ -1,1 +1,3 @@
 - Overload constructors to implement default values for some arguments (maybe)
+- In process, all functions if possible need to accept as argument: object,
+    List, array 
