@@ -86,7 +86,7 @@ public class Process{
 	// Scale or String[], int -> Harmony (a group of chords)
 	// !!! should I be implementing different type of outputs depending on the input?, implement max depth? 
 	// !!! implement default depth, can this method be refactored using recursive dynamics instead of ifs?
-	// !!! implement more cases 
+	// !!! implement more possible cases and depths
 	// ---------------------------------------------------------------------------------------------
 	// harmonize: Scale, int -> Harmony
 	public Harmony harmonize(Scale scale, int depth){
@@ -96,6 +96,19 @@ public class Process{
 			for (int e = 0; e < scaleSize; e++){
 				chordList.add(new Chord( new Note[]{scale.getNotes().get(e), scale.getNotes().get((e + 2) % scaleSize), 
 						                            scale.getNotes().get((e + 4) % scaleSize)}));
+			}
+		}
+		if (depth == 2){
+			for (int e = 0; e < scaleSize; e++){
+				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
+						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize)}));
+			}
+		}
+		if (depth == 3){
+			for (int e = 0; e < scaleSize; e++){
+				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
+						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
+						                            scale.getNotes().get((e + 8) % scaleSize)}));
 			}
 		}
 		return new Harmony(chordList);
