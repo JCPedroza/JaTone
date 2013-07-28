@@ -14,8 +14,12 @@ public class Test{
 	String[]     aPool2     = {"Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G"};
 	List<String> aPool3     = new ArrayList<String>(Arrays.asList(aPool2));
 	Chord        aChord1    = new Chord(aNoteArray, "Am");
+	Chord        aChord2    = new Chord(aNoteArray);
 	Scale        aScale1    = new Scale(aNoteList, "A aeolian");
-	
+	Scale        aScale2    = new Scale(aNoteList);
+	Scale        aScale3    = new Scale(aNoteArray);
+	List<Chord>  aChList    = new ArrayList<Chord>(Arrays.asList(aChord1, aChord2));
+	ChordGroup   aChG1      = new ChordGroup(aChList);
 	// Instances
 	Process      aProcess   = new Process();
 	Formulas     formulas   = new Formulas();
@@ -26,9 +30,15 @@ public class Test{
 		assertEquals(aScale1.getName(), "A aeolian");
 		assertEquals(aChord1.getName(), "Am");
 		
-		// Process Tests
+		// Misc method tests ---------------------------
+		assertEquals(aChord2.getName(), "ACE");
+		assertEquals(aScale2.getName(), "ACE");
+		assertEquals(aScale3.getName(), "ACE");
+		assertEquals(Arrays.toString(aChG1.getChordsAsStringArray()), Arrays.toString(new String[] {"Am", "ACE"}));
 		
-		//stepCount()
+		// Process Tests -------------------------------
+		
+		// stepCount()
 		assertEquals(aProcess.stepCount("C","Eb"), 3);
 		assertEquals(aProcess.stepCount(aNoteA, aNoteC), 3);
 		assertEquals(aProcess.stepCount(aNoteG, aNoteA), 2);
@@ -36,22 +46,26 @@ public class Test{
 		assertEquals(aProcess.stepCount("Gb", "B", aPool2), 5);
 		assertEquals(aProcess.stepCount(aNoteA, aNoteC, aPool), 2);
 		assertEquals(aProcess.stepCount(aNoteA, aNoteC, aPool2), 3);
+
         
-		//scalize()
-		assertEquals(Arrays.toString(aProcess.scalize(aNoteA, formulas.aeolian).getNotesAsString()),
+		// scalize()
+		assertEquals(Arrays.toString(aProcess.scalize(aNoteA, formulas.aeolian).getNotesAsStringArray()),
 				     Arrays.toString(new String[] {"A", "B", "C", "D", "E", "F", "G"}));
-		assertEquals(Arrays.toString(aProcess.scalize(aNoteA, formulas.aeolian, aPool2).getNotesAsString()),
+		assertEquals(Arrays.toString(aProcess.scalize(aNoteA, formulas.aeolian, aPool2).getNotesAsStringArray()),
 			         Arrays.toString(new String[] {"A", "B", "C", "D", "E", "F", "G"}));
-		assertEquals(Arrays.toString(aProcess.scalize(aNoteC, formulas.ionian).getNotesAsString()),
+		assertEquals(Arrays.toString(aProcess.scalize(aNoteC, formulas.ionian).getNotesAsStringArray()),
 			         Arrays.toString(new String[] {"C", "D", "E", "F", "G", "A", "B"}));
-		assertEquals(Arrays.toString(aProcess.scalize(aNoteC, formulas.ionian, aPool).getNotesAsString()),
+		assertEquals(Arrays.toString(aProcess.scalize(aNoteC, formulas.ionian, aPool).getNotesAsStringArray()),
 		             Arrays.toString(new String[] {"C", "A", "C", "D", "B", "D", "B"}));
-		assertEquals(Arrays.toString(aProcess.scalize("F", formulas.ionian).getNotesAsString()),
+		assertEquals(Arrays.toString(aProcess.scalize("F", formulas.ionian).getNotesAsStringArray()),
 				     Arrays.toString(new String[] {"F", "G", "A", "Bb", "C", "D", "E"}));
-		assertEquals(Arrays.toString(aProcess.scalize("D", formulas.aeolian, aPool2).getNotesAsString()),
+		assertEquals(Arrays.toString(aProcess.scalize("D", formulas.aeolian, aPool2).getNotesAsStringArray()),
 				     Arrays.toString(new String[] {"D", "E", "F", "G", "A", "Bb", "C"}));
-		 
 		
+		// harmonize() & scalize()
+		assertEquals(Arrays.toString(aProcess.harmonize(aProcess.scalize(aNoteA, formulas.aeolian)).getChordsAsStringArray()), 
+				     Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
+		 
 		// :D
 		System.out.println("All test passed! :D");
 	}
