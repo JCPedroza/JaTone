@@ -21,11 +21,12 @@ public class Scale extends NoteGroup{
     public Scale(Note[] newNotes){
         super(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
-    // StringArray, String -> ChordGroup
+    // StringArray, String -> Scale
     public Scale(String[] newNotes, String newName){
     	super(newNotes, newName);
     }
-    // StringArray -> ChordGroup
+    // StringArray -> Scale
     public Scale(String[] newNotes){
-    	super(newNotes);}
+    	super(newNotes);
+    }
 }

@@ -13,27 +13,27 @@ public class NoteGroup{
     // --------------------------------------------------------------- 
     // Constructor, accepts array or ArrayList of Note. Creates ArrayList if 
     // argument is an array.
-    // NoteList, String -> ChordGroup
+    // NoteList, String -> NoteGroup
     public NoteGroup(List<Note> newNotes, String newName){
         notes = newNotes;
         size  = notes.size();
         name  = newName;
     }
-    // NoteList -> ChordGroup
+    // NoteList -> NoteGroup
     public NoteGroup(List<Note> newNotes){
     	notes = newNotes;
     	size = notes.size();
     	name = makeName(notes);
     }
-    // NoteArray, String -> ChordGroup
+    // NoteArray, String -> NoteGroup
     public NoteGroup(Note[] newNotes, String newName){
         this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
-    // NoteArray -> ChordGroup
+    // NoteArray -> NoteGroup
     public NoteGroup(Note[] newNotes){
     	this(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
-    // StringArray, String -> ChordGroup
+    // StringArray, String -> NoteGroup
     public NoteGroup(String[] newNotes, String newName){
     	List<Note> noteList = new ArrayList<Note>();
     	for (String e : newNotes){
@@ -43,7 +43,7 @@ public class NoteGroup{
     	size  = notes.size();
     	name  = newName;
     }
-    // StringArray -> ChordGroup
+    // StringArray -> NoteGroup
     public NoteGroup(String[] newNotes){
     	List<Note> noteList = new ArrayList<Note>();
     	for (String e : newNotes){
