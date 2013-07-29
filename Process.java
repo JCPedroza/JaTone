@@ -86,7 +86,7 @@ public class Process{
 	// Scale or String[], int -> Harmony (a group of chords)
 	// !!! should I be implementing different type of outputs depending on the input?, implement max depth? 
 	// !!! implement default depth, can this method be refactored using recursive dynamics instead of ifs?
-	// !!! implement more possible cases and depths
+	// !!! implement more possible cases and depths !!! throw error if depth < 0 or > 5
 	// ---------------------------------------------------------------------------------------------
 	// harmonize: Scale, int -> Harmony
 	public Harmony harmonize(Scale scale, int depth){
@@ -98,24 +98,32 @@ public class Process{
 						                            scale.getNotes().get((e + 4) % scaleSize)}));
 			}
 		}
-		if (depth == 2){
+		else if (depth == 2){
 			for (int e = 0; e < scaleSize; e++){
 				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
 						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize)}));
 			}
 		}
-		if (depth == 3){
+		else if (depth == 3){
 			for (int e = 0; e < scaleSize; e++){
 				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
 						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
 						                            scale.getNotes().get((e + 8) % scaleSize)}));
 			}
 		}
-		if (depth == 4){
+		else if (depth == 4){
 			for (int e = 0; e < scaleSize; e++){
 				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
 						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
 						                            scale.getNotes().get((e + 8) % scaleSize), scale.getNotes().get((e + 10) % scaleSize)}));
+			}
+		}
+		else if (depth == 5){
+			for (int e = 0; e < scaleSize; e++){
+				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
+						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
+						                            scale.getNotes().get((e + 8) % scaleSize), scale.getNotes().get((e + 10) % scaleSize),
+						                            scale.getNotes().get((e + 12) % scaleSize)}));
 			}
 		}
 		return new Harmony(chordList);
