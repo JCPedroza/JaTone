@@ -87,6 +87,7 @@ public class Process{
 	// !!! should I be implementing different type of outputs depending on the input?, implement max depth? 
 	// !!! implement default depth, can this method be refactored using recursive dynamics instead of ifs?
 	// !!! implement more possible cases and depths !!! throw error if depth < 0 or > 5
+	// !!! List<string> can't be implemented atm, until NoteGtoup.java can handle it
 	// ---------------------------------------------------------------------------------------------
 	// harmonize: Scale, int -> Harmony
 	public Harmony harmonize(Scale scale, int depth){
@@ -132,9 +133,13 @@ public class Process{
 	public Harmony harmonize(Scale scale){
 		return harmonize(scale, 1);
 	}
-	// harmonize: List, int -> Harmony
-//	public Harmony harmonize(List<String> scale, int depth){
-//		return harmonize()
-//	}
+    // harmonize: StringArray, int -> Harmony
+	public Harmony harmonize(String[] scale, int depth){
+		return harmonize(new Scale(scale), depth);
+	}
+	// harmonize: StringArray -> Harmony
+	public Harmony harmonize(String[] scale){
+		return harmonize(new Scale(scale), 1);
+	}
 	
 }
