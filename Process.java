@@ -111,11 +111,22 @@ public class Process{
 						                            scale.getNotes().get((e + 8) % scaleSize)}));
 			}
 		}
+		if (depth == 4){
+			for (int e = 0; e < scaleSize; e++){
+				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
+						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
+						                            scale.getNotes().get((e + 8) % scaleSize), scale.getNotes().get((e + 10) % scaleSize)}));
+			}
+		}
 		return new Harmony(chordList);
 	}
 	// harmonize: Scale -> Harmony
 	public Harmony harmonize(Scale scale){
 		return harmonize(scale, 1);
 	}
+	// harmonize: List, int -> Harmony
+//	public Harmony harmonize(List<String> scale, int depth){
+//		return harmonize()
+//	}
 	
 }
