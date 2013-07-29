@@ -4,24 +4,28 @@ import java.util.*;
 public class Test{
 	
 	// Instance variables for use with testing
-	Note         aNoteA     = new Note("A", 440, 60, 1, 1, 127, 1);
-	Note         aNoteC     = new Note("C", 450, 61, 2, 4, 125, 6);
-	Note         aNoteE     = new Note("E", 460, 62, 3, 5, 126, 7);
-	Note         aNoteG     = new Note("G", 470, 66, 6, 6, 6, 6);
-	Note[]       aNoteArray = {aNoteA, aNoteC, aNoteE};
-	String[]     aStrNoteA  = {"A", "B", "C", "D", "E", "F", "G"};
-	List<Note>   aNoteList  = Arrays.asList(aNoteA, aNoteC, aNoteE);
-	List<String> aPool      = Arrays.asList("A", "B", "C", "D");
-	String[]     aPool2     = {"Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G"};
-	List<String> aPool3     = new ArrayList<String>(Arrays.asList(aPool2));
-	Chord        aChord1    = new Chord(aNoteArray, "Am");
-	Chord        aChord2    = new Chord(aNoteArray);
-	Scale        aScale1    = new Scale(aNoteList, "A aeolian");
-	Scale        aScale2    = new Scale(aNoteList);
-	Scale        aScale3    = new Scale(aNoteArray);
-	Scale        aScale4    = new Scale(aStrNoteA);
-	List<Chord>  aChList    = new ArrayList<Chord>(Arrays.asList(aChord1, aChord2));
-	ChordGroup   aChG1      = new ChordGroup(aChList);
+	Note         aNoteA      = new Note("A", 440, 60, 1, 1, 127, 1);
+	Note         aNoteB      = new Note("B", 440, 60, 1, 1, 127, 1);
+	Note         aNoteC      = new Note("C", 450, 61, 2, 4, 125, 6);
+	Note         aNoteD      = new Note("D", 440, 60, 1, 1, 127, 1);
+	Note         aNoteE      = new Note("E", 460, 62, 3, 5, 126, 7);
+	Note         aNoteF      = new Note("F", 440, 60, 1, 1, 127, 1);
+	Note         aNoteG      = new Note("G", 470, 66, 6, 6, 6, 6);
+	Note[]       aNoteArray  = {aNoteA, aNoteC, aNoteE};
+	String[]     aStrNoteA   = {"A", "B", "C", "D", "E", "F", "G"};
+	List<Note>   aNoteList   = Arrays.asList(aNoteA, aNoteC, aNoteE);
+	List<Note>   aNoteList2  = Arrays.asList(aNoteA, aNoteB, aNoteC, aNoteD, aNoteE, aNoteF, aNoteG);
+	List<String> aPool       = Arrays.asList("A", "B", "C", "D");
+	String[]     aPool2      = {"Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G"};
+	List<String> aPool3      = new ArrayList<String>(Arrays.asList(aPool2));
+	Chord        aChord1     = new Chord(aNoteArray, "Am");
+	Chord        aChord2     = new Chord(aNoteArray);
+	Scale        aScale1     = new Scale(aNoteList, "A aeolian");
+	Scale        aScale2     = new Scale(aNoteList);
+	Scale        aScale3     = new Scale(aNoteArray);
+	Scale        aScale4     = new Scale(aStrNoteA);
+	List<Chord>  aChList     = new ArrayList<Chord>(Arrays.asList(aChord1, aChord2));
+	ChordGroup   aChG1       = new ChordGroup(aChList);
 	// Instances
 	Process      aProcess   = new Process();
 	Formulas     formulas   = new Formulas();
@@ -72,6 +76,19 @@ public class Test{
 				     Arrays.toString(new String[] {"CEGB", "DFAC", "EGBD", "FACE", "GBDF", "ACEG", "BDFA"}));
 		assertEquals(Arrays.toString(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.ionian), 3).getChordsAsStringArray()),
 				     Arrays.toString(new String[] {"CEGBD", "DFACE", "EGBDF", "FACEG", "GBDFA", "ACEGB", "BDFAC"}));
+		assertEquals(Arrays.toString(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.ionian), 4).getChordsAsStringArray()),
+			         Arrays.toString(new String[] {"CEGBDF", "DFACEG", "EGBDFA", "FACEGB", "GBDFAC", "ACEGBD", "BDFACE"}));
+		assertEquals(Arrays.toString(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.ionian), 5).getChordsAsStringArray()),
+		             Arrays.toString(new String[] {"CEGBDFA", "DFACEGB", "EGBDFAC", "FACEGBD", "GBDFACE", "ACEGBDF", "BDFACEG"}));
+		assertEquals(Arrays.toString(aProcess.harmonize(aStrNoteA).getChordsAsStringArray()), 
+				     Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
+		assertEquals(Arrays.toString(aProcess.harmonize(aNoteList2).getChordsAsStringArray()),
+				     Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
+		assertEquals(Arrays.toString(aProcess.harmonize(aNoteList2, 2).getChordsAsStringArray()),
+			         Arrays.toString(new String[] {"ACEG", "BDFA", "CEGB", "DFAC", "EGBD", "FACE", "GBDF"}));
+		
+	
+		
 		 
 		// :D
 		System.out.println("All test passed! :D");
