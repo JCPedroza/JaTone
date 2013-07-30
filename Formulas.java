@@ -15,7 +15,15 @@ public class Formulas{
     public int[] twosemitri = {1, 1, 4, 1, 1, 4};  // two semitone tritone 
     
     // Major derived formulas
-    public int[] aeolian    = {2, 1, 2, 2, 1, 2, 2};  // aeolian - minor
+    public int[] lydian     = {2, 2, 2, 1, 2, 2, 1};  // lydian
     public int[] ionian     = {2, 2, 1, 2, 2, 2, 1};  // ionian - major
     public int[] mixolydian = {2, 2, 1, 2, 2, 1, 2};  // mixolydian
+    public int[] dorian     = {2, 1, 2, 2, 2, 1, 2};  // dorian
+    public int[] aeolian    = {2, 1, 2, 2, 1, 2, 2};  // aeolian - minor
+    public int[] phrygian   = {1, 2, 2, 2, 1, 2, 2};  // phrygian
+    public int[] locrian    = {1, 2, 2, 1, 2, 2, 2};  // locrian
+    
+    // Melodic minor derived formulas
+    public int[] semilocrian  = {2, 1, 2, 1, 2, 2, 2}; // semilocrian
+    public int[] superlocrian = {1, 2, 1, 2, 2, 2, 2}; // superlocrian
 }
