@@ -149,5 +149,13 @@ public class Process{
 	public Harmony harmonize(List<Note> scale){
 		return harmonize(new Scale(scale), 1);
 	}
+	// harmonize: NoteArray, int -> Harmony
+	public Harmony harmonize(Note[] scale, int depth){
+		return harmonize(new Scale(scale), depth);
+	}
+	// harmonize: NoteArray -> Harmony
+	public Harmony harmonize(Note[] scale){
+		return harmonize(new Scale(scale), 1);
+	}
 	//!!! implement with other possible inputs based on possible input types for NoteGroup constructor
 }
