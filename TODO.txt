@@ -1,3 +1,5 @@
 - Overload constructors to implement default values for some arguments (maybe)
 - In process, all functions if possible need to accept as argument: object,
     List, array 
+- Override the toString() of your classes, as specified here
+  http://stackoverflow.com/questions/13001427/printing-out-all-the-objects-in-array-list
