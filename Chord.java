@@ -32,12 +32,12 @@ public class Chord extends NoteGroup{
     }
     
     //===================================================================
-    //                          Methods
+    //                          Special Setters
     //===================================================================
     
     // Inversions
-    // invert(): inverts the chord one time
-    public void invert(){
+    // firstInversion(): inverts the chord one time
+    public void firstInversion(){
     	rotateNotes(1);
     }
     
