@@ -16,11 +16,13 @@ public class Test{
 	String[]     aStrNoteA    = {"A", "B", "C", "D", "E", "F", "G"};
 	List<Note>   aNoteList    = Arrays.asList(aNoteA, aNoteC, aNoteE);
 	List<Note>   aNoteList2   = Arrays.asList(aNoteA, aNoteB, aNoteC, aNoteD, aNoteE, aNoteF, aNoteG);
+	List<Note>   aNoteList3   = Arrays.asList(aNoteC, aNoteE, aNoteG);
 	List<String> aPool        = Arrays.asList("A", "B", "C", "D");
 	String[]     aPool2       = {"Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G"};
 	List<String> aPool3       = new ArrayList<String>(Arrays.asList(aPool2));
 	Chord        aChord1      = new Chord(aNoteArray, "Am");
 	Chord        aChord2      = new Chord(aNoteArray);
+	Chord        aChord3      = new Chord(aNoteList3);
 	Scale        aScale1      = new Scale(aNoteList, "A aeolian");
 	Scale        aScale2      = new Scale(aNoteList);
 	Scale        aScale3      = new Scale(aNoteArray);
@@ -36,13 +38,14 @@ public class Test{
 		assertEquals(aNoteA.getName(), "A");
 		assertEquals(aScale1.getName(), "A aeolian");
 		assertEquals(aChord1.getName(), "Am");
-		
-		// Misc method tests ---------------------------
 		assertEquals(aChord2.getName(), "ACE");
 		assertEquals(aScale2.getName(), "ACE");
 		assertEquals(aScale3.getName(), "ACE");
 	    assertEquals(aScale4.getName(), "ABCDEFG");
 		assertEquals(Arrays.toString(aChG1.getChordsAsStringArray()), Arrays.toString(new String[] {"Am", "ACE"}));
+		// Chord invert() and NoteGoup rotateNotes(): aChord3 initial state = C E G
+		aChord3.invert();
+		System.out.println(Arrays.toString(aChord3.getNotesAsStringArray()));
 		
 		// Process Tests -------------------------------
 		
@@ -93,10 +96,8 @@ public class Test{
 		assertEquals(Arrays.toString(aProcess.harmonize(aNoteArray2).getChordsAsStringArray()),
 		             Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
 		
-	
-		
-		 
+
 		// :D
-		System.out.println("All test passed! :D");
+		System.out.println("All test passed! :D :D :D");
 	}
 }

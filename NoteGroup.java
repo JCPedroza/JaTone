@@ -1,7 +1,9 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
+
+// !!! needs to implement a constructor for List<string>, not possible atm
+// is using a generic List as input and then filtering the type on the 
+// same constructor the solution?
 public class NoteGroup{
     
 	// ---------------------------------------------------------------
@@ -52,7 +54,7 @@ public class NoteGroup{
     	notes = noteList;
     	size  = notes.size();
     	name  = makeName(notes);
-    }
+    }   
     
     // ---------------------------------------------------------------
     // Methods
@@ -71,6 +73,16 @@ public class NoteGroup{
     // Setters & Getters
     // No setter for size since it depends on List size. List notes uses
     // an add/remove note dynamic. 
+    public void setNotes(List<Note> newNotes){
+    	notes = newNotes;
+    }
+    public List<Note> getNotes(){
+        return notes;
+    } 
+    // Collections.rotate() caller for subclasses
+    public void rotateNotes(int index){
+    	Collections.rotate(notes, index);
+    }
     public void setName(String newName){
     	name = newName;
     }
@@ -90,10 +102,6 @@ public class NoteGroup{
     public int getSize(){
         return size;
     }
-
-    public List<Note> getNotes(){
-        return notes;
-    } 
     
     // Return an array of strings with the names of the notes
     public String[] getNotesAsStringArray(){

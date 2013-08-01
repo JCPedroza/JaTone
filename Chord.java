@@ -1,10 +1,11 @@
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Chord extends NoteGroup{
     
-    // Constructors
+	//===================================================================
+    //                       Constructor
+    //===================================================================
+	
     // NoteList, String -> Chord
     public Chord(List<Note> newNotes, String newName){
         super(newNotes, newName);
@@ -29,4 +30,15 @@ public class Chord extends NoteGroup{
     public Chord(String[] newNotes){
     	super(newNotes);
     }
+    
+    //===================================================================
+    //                          Methods
+    //===================================================================
+    
+    // Inversions
+    // invert(): inverts the chord one time
+    public void invert(){
+    	rotateNotes(1);
+    }
+    
 }
