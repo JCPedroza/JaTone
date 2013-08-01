@@ -13,6 +13,7 @@ public class NoteGroup{
     private List<Note> notes;
     private List<Note> originalNotes;
     private String     name;
+    private String     secondaryName; 
     
     //===================================================================
     //                          Constructor
@@ -23,13 +24,14 @@ public class NoteGroup{
         size          = notes.size();
         name          = newName;
         // originalNotes creates a copy of newNotes to keep as reference
-        originalNotes = new ArrayList<Note>();
+        originalNotes = new ArrayList<Note>(newNotes);
     }
     // NoteList -> NoteGroup
     public NoteGroup(List<Note> newNotes){
     	notes         = newNotes;
     	size          = notes.size();
     	name          = makeName(notes);
+    	originalNotes = new ArrayList<Note>(newNotes);
     }
     // NoteArray, String -> NoteGroup
     public NoteGroup(Note[] newNotes, String newName){
@@ -48,6 +50,7 @@ public class NoteGroup{
     	notes = noteList;
     	size  = notes.size();
     	name  = newName;
+    	originalNotes = new ArrayList<Note>(noteList);
     }
     // StringArray -> NoteGroup
     public NoteGroup(String[] newNotes){
@@ -58,6 +61,7 @@ public class NoteGroup{
     	notes = noteList;
     	size  = notes.size();
     	name  = makeName(notes);
+    	originalNotes = new ArrayList<Note>(noteList);
     }
     
     //===================================================================
@@ -81,10 +85,16 @@ public class NoteGroup{
     // an add/remove note dynamic. 
     public void setNotes(List<Note> newNotes){
     	notes = newNotes;
+    	size  = newNotes.size();
     }
     public List<Note> getNotes(){
         return notes;
     } 
+    
+    public List<Note> getOriginalNotes(){
+    	return originalNotes;
+    }
+    
     // Collections.rotate() caller for subclasses
     public void rotateNotes(int index){
     	Collections.rotate(notes, index);
@@ -94,6 +104,13 @@ public class NoteGroup{
     }
     public String getName(){
     	return name;
+    }
+    
+    public void setSecondaryName(String newSecondaryName){
+    	secondaryName = newSecondaryName;
+    }
+    public String getSecondaryName(){
+    	return secondaryName;
     }
     
     public void addNote(Note note){
@@ -113,7 +130,7 @@ public class NoteGroup{
     //                   Special Setters & Getters
     //===================================================================
     
-    // getNotesAsStringArray(): -> String
+    // getNotesAsString(): -> String
     // Returns names of the notes as a String
     public String getNotesAsString(){
         List<String> noteNames = new ArrayList<String>();
@@ -122,4 +139,15 @@ public class NoteGroup{
         }
         return Arrays.toString(noteNames.toArray(new String[noteNames.size()]));
     }
+    
+    // getOriginalNotesAsString(): -> String
+    // Returns names of originalNotes as a String
+    public String getOriginalNotesAsString(){
+        List<String> noteNames = new ArrayList<String>();
+        for (Note e : originalNotes){
+        	noteNames.add(e.getName());
+        }
+        return Arrays.toString(noteNames.toArray(new String[noteNames.size()]));
+    }
+    
 }
