@@ -6,10 +6,12 @@ import java.util.*;
 // same constructor the solution?
 public class NoteGroup{
     
-	// ---------------------------------------------------------------
-    // Instance variables 
+	//===================================================================
+    //                      Instance Variables
+    //===================================================================
     private int        size;
     private List<Note> notes;
+    private List<Note> originalNotes;
     private String     name;
     
     //===================================================================
@@ -17,15 +19,17 @@ public class NoteGroup{
     //===================================================================
     // NoteList, String -> NoteGroup
     public NoteGroup(List<Note> newNotes, String newName){
-        notes = newNotes;
-        size  = notes.size();
-        name  = newName;
+        notes         = newNotes;
+        size          = notes.size();
+        name          = newName;
+        // originalNotes creates a copy of newNotes to keep as reference
+        originalNotes = new ArrayList<Note>();
     }
     // NoteList -> NoteGroup
     public NoteGroup(List<Note> newNotes){
-    	notes = newNotes;
-    	size = notes.size();
-    	name = makeName(notes);
+    	notes         = newNotes;
+    	size          = notes.size();
+    	name          = makeName(notes);
     }
     // NoteArray, String -> NoteGroup
     public NoteGroup(Note[] newNotes, String newName){
@@ -54,7 +58,7 @@ public class NoteGroup{
     	notes = noteList;
     	size  = notes.size();
     	name  = makeName(notes);
-    }   
+    }
     
     //===================================================================
     //                             Methods
@@ -109,12 +113,13 @@ public class NoteGroup{
     //                   Special Setters & Getters
     //===================================================================
     
+    // getNotesAsStringArray(): -> String
     // Returns names of the notes as a String
-    public String getNotesAsStringArray(){
-        List<String> noteList = new ArrayList<String>();
+    public String getNotesAsString(){
+        List<String> noteNames = new ArrayList<String>();
         for (Note e : notes){
-        	noteList.add(e.getName());
+        	noteNames.add(e.getName());
         }
-        return Arrays.toString(noteList.toArray(new String[noteList.size()]));
+        return Arrays.toString(noteNames.toArray(new String[noteNames.size()]));
     }
 }
