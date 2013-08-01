@@ -30,7 +30,7 @@ public class ChordGroup{
     //===================================================================
 	
 	// Returns names of the notes as a String
-    public String getChordsAsStringArray(){
+    public String getChordsAsString(){
         List<String> noteList = new ArrayList<String>();
         for (Chord e : chords){
         	noteList.add(e.getName());
