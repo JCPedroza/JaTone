@@ -36,8 +36,15 @@ public class Chord extends NoteGroup{
     //===================================================================
     
     // Inversions
-    // firstInversion(): inverts the chord one time
-    public void firstInversion(){
+    // invert(): int -> void 
+    // Rotates the order of the notes. 1 puts the first note of the list in the last spot of the list, 2
+    // puts the first two notes of the list in the last spots of the list, and so on.
+    public void invert(int n){
+    	rotateNotes(n);
+    }
+    // invert(): -> void
+    // No argument case, default value is 1
+    public void invert(){
     	rotateNotes(1);
     }
     
