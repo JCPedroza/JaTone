@@ -2,12 +2,15 @@ import java.util.*;
 
 public class ChordGroup{
 	
-	// Instance variables
+	//===================================================================
+    //                      Instance Variables
+    //===================================================================
 	private int         size;
 	private List<Chord> chords;
 	
-	// Constructor
-	// !!! More cases
+	//===================================================================
+    //                          Constructor
+    //===================================================================
 	public ChordGroup(List<Chord> newChordList){
 	    chords = newChordList;
 	    size   = chords.size();
@@ -22,13 +25,16 @@ public class ChordGroup{
 		return chords;
 	}
 	
-	// Returns the chords as an array of arrays of notes
-	// !!! Everything
-	public String[] getChordsAsStringArray(){
-	    List<String> chordList = new ArrayList<String>();
-	    for (Chord e : chords){
-	    	chordList.add(e.getName());
-	    } 
-	    return chordList.toArray(new String[chordList.size()]);
-	}
+	//===================================================================
+    //                   Special Setters & Getters
+    //===================================================================
+	
+	// Returns names of the notes as a String
+    public String getChordsAsStringArray(){
+        List<String> noteList = new ArrayList<String>();
+        for (Chord e : chords){
+        	noteList.add(e.getName());
+        }
+        return Arrays.toString(noteList.toArray(new String[noteList.size()]));
+    }
 }
