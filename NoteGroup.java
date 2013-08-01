@@ -12,9 +12,9 @@ public class NoteGroup{
     private List<Note> notes;
     private String     name;
     
-    // --------------------------------------------------------------- 
-    // Constructor, accepts array or ArrayList of Note. Creates ArrayList if 
-    // argument is an array.
+    //===================================================================
+    //                          Constructor
+    //===================================================================
     // NoteList, String -> NoteGroup
     public NoteGroup(List<Note> newNotes, String newName){
         notes = newNotes;
@@ -56,8 +56,9 @@ public class NoteGroup{
     	name  = makeName(notes);
     }   
     
-    // ---------------------------------------------------------------
-    // Methods
+    //===================================================================
+    //                             Methods
+    //===================================================================
     
     // creates a name for the chord based on its notes, changes and returns the name
     // makeName: List<Note> -> String
@@ -69,8 +70,9 @@ public class NoteGroup{
         return returnString;
     }
     
-    // --------------------------------------------------------------
-    // Setters & Getters
+    //===================================================================
+    //                       Setters & Getters
+    //===================================================================
     // No setter for size since it depends on List size. List notes uses
     // an add/remove note dynamic. 
     public void setNotes(List<Note> newNotes){
@@ -103,12 +105,16 @@ public class NoteGroup{
         return size;
     }
     
-    // Return an array of strings with the names of the notes
-    public String[] getNotesAsStringArray(){
+    //===================================================================
+    //                   Special Setters & Getters
+    //===================================================================
+    
+    // Returns names of the notes as a String
+    public String getNotesAsStringArray(){
         List<String> noteList = new ArrayList<String>();
         for (Note e : notes){
         	noteList.add(e.getName());
         }
-        return noteList.toArray(new String[noteList.size()]);
+        return Arrays.toString(noteList.toArray(new String[noteList.size()]));
     }
 }
