@@ -4,4 +4,4 @@
 - Override the toString() of your classes, as specified here
   http://stackoverflow.com/questions/13001427/printing-out-all-the-objects-in-array-list
 - implement a better, cleaner, way to overload your constructor, maybe use a factory as suggested in effective java
-- finish implementing invert(), maybe it needs a secondivnersion thirdinversion etc dynamic? maybe using originalNotes as a reference point, maybe it can be done by using the int argument instead of the python implementation of doing the inversion x times 
+- finish implementing invert(), maybe it needs a secondivnersion thirdinversion etc dynamic? maybe using originalNotes as a reference point, maybe it can be done by using the int argument instead of the python implementation of doing the inversion x times also implement a inversion dynamic that applies invert() to the opposite side, for example: from inversion two to inversion one
