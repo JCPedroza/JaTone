@@ -19,12 +19,6 @@ public class NoteGroup{
     //                          Constructors
     //===================================================================
     
-    // Copy constructor
-    // NoteGroup -> NoteGroup
-    public NoteGroup(NoteGroup newNoteGroup){
-        this(newNoteGroup.getNotes(), newNoteGroup.getName());
-        secondaryName = newNoteGroup.getSecondaryName();
-    }
     // NoteList, String -> NoteGroup
     public NoteGroup(List<Note> newNotes, String newName){
         notes         = new ArrayList<Note>(newNotes);
@@ -69,6 +63,12 @@ public class NoteGroup{
     	size  = notes.size();
     	name  = makeName(notes);
     	originalNotes = new ArrayList<Note>(noteList);
+    }
+    // Copy constructor
+    // NoteGroup -> NoteGroup
+    public NoteGroup(NoteGroup newNoteGroup){
+        this(newNoteGroup.getNotes(), newNoteGroup.getName());
+        secondaryName = newNoteGroup.getSecondaryName();
     }
     
     
@@ -142,7 +142,16 @@ public class NoteGroup{
     }
     
     //===================================================================
-    //                   Special Setters & Getters
+    //                       Special Setters
+    //===================================================================
+    
+    // reset(): resets the position and members of the notes list to original state, using originalNotes as reference
+    public void reset(){
+    	notes = new ArrayList<Note>(originalNotes);
+    }
+    
+    //===================================================================
+    //                       Special Getters
     //===================================================================
     
     // getNotesAsString(): -> String
@@ -164,5 +173,4 @@ public class NoteGroup{
         }
         return Arrays.toString(noteNames.toArray(new String[noteNames.size()]));
     }
-    
 }

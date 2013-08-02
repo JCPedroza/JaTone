@@ -68,6 +68,13 @@ public class Test{
 		aChord3.invert();
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"C", "E", "G"}));
 		assertEquals(aChord3.getOriginalNotesAsString(), Arrays.toString(new String[] {"C", "E", "G"}));
+		aChord3.invert(-1);
+		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"E", "G", "C"}));
+		aChord3.invert(-1);
+		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"G", "C", "E"}));
+		// Test for reset
+		aChord3.reset();
+		assertEquals(aChord3.getOriginalNotesAsString(), Arrays.toString(new String[] {"C", "E", "G"}));
 		
 		// Process Tests -------------------------------
 		
