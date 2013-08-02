@@ -3,7 +3,7 @@ import java.util.*;
 public class Chord extends NoteGroup{
     
 	//===================================================================
-    //                       Constructor
+    //                       Constructors
     //===================================================================
 	
     // NoteList, String -> Chord
@@ -29,6 +29,11 @@ public class Chord extends NoteGroup{
     // StringArray -> Chord
     public Chord(String[] newNotes){
     	super(newNotes);
+    }
+    //Copy constructor
+    // Chord -> Chord
+    public Chord(Chord newChord){
+    	super(newChord);
     }
     
     //===================================================================

@@ -1,10 +1,11 @@
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Scale extends NoteGroup{
 	
-	// Constructors
+	//===================================================================
+    //                       Constructors
+    //===================================================================
+	
     // NoteList, String -> Scale
     public Scale(List<Note> newNotes, String newName){
         super(newNotes, newName);
@@ -28,5 +29,9 @@ public class Scale extends NoteGroup{
     // StringArray -> Scale
     public Scale(String[] newNotes){
     	super(newNotes);
+    }
+    // Copy constructor
+    public Scale(Scale newScale){
+    	super(newScale);
     }
 }
