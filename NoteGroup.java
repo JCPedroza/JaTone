@@ -16,11 +16,18 @@ public class NoteGroup{
     private String     secondaryName; 
     
     //===================================================================
-    //                          Constructor
+    //                          Constructors
     //===================================================================
+    
+    // Copy constructor
+    // NoteGroup -> NoteGroup
+    public NoteGroup(NoteGroup newNoteGroup){
+        this(newNoteGroup.getNotes(), newNoteGroup.getName());
+        secondaryName = newNoteGroup.getSecondaryName();
+    }
     // NoteList, String -> NoteGroup
     public NoteGroup(List<Note> newNotes, String newName){
-        notes         = newNotes;
+        notes         = new ArrayList<Note>(newNotes);
         size          = notes.size();
         name          = newName;
         // originalNotes creates a copy of newNotes to keep as reference
@@ -28,7 +35,7 @@ public class NoteGroup{
     }
     // NoteList -> NoteGroup
     public NoteGroup(List<Note> newNotes){
-    	notes         = newNotes;
+    	notes         = new ArrayList<Note>(newNotes);
     	size          = notes.size();
     	name          = makeName(notes);
     	originalNotes = new ArrayList<Note>(newNotes);
@@ -64,6 +71,7 @@ public class NoteGroup{
     	originalNotes = new ArrayList<Note>(noteList);
     }
     
+    
     //===================================================================
     //                             Methods
     //===================================================================
@@ -79,7 +87,7 @@ public class NoteGroup{
     }
     
     //===================================================================
-    //                       Setters & Getters
+    //                            Setters 
     //===================================================================
     // No setter for size since it depends on List size. List notes uses
     // an add/remove note dynamic. 
@@ -87,6 +95,32 @@ public class NoteGroup{
     	notes = newNotes;
     	size  = newNotes.size();
     }
+    
+    // Collections.rotate() caller for subclasses
+    public void rotateNotes(int index){
+    	Collections.rotate(notes, index);
+    }
+    
+    public void setName(String newName){
+    	name = newName;
+    }
+    
+    public void setSecondaryName(String newSecondaryName){
+    	secondaryName = newSecondaryName;
+    }
+    
+    public void addNote(Note note){
+        notes.add(note);
+        size++;
+    }
+    
+    public void removeNote(Note note){
+        notes.remove(note);
+        size--;
+    }
+    //===================================================================
+    //                            Getters 
+    //===================================================================
     public List<Note> getNotes(){
         return notes;
     } 
@@ -95,33 +129,14 @@ public class NoteGroup{
     	return originalNotes;
     }
     
-    // Collections.rotate() caller for subclasses
-    public void rotateNotes(int index){
-    	Collections.rotate(notes, index);
-    }
-    public void setName(String newName){
-    	name = newName;
-    }
     public String getName(){
     	return name;
     }
     
-    public void setSecondaryName(String newSecondaryName){
-    	secondaryName = newSecondaryName;
-    }
     public String getSecondaryName(){
     	return secondaryName;
     }
     
-    public void addNote(Note note){
-        notes.add(note);
-        size++;
-    }
-    public void removeNote(Note note){
-        notes.remove(note);
-        size--;
-    }
-
     public int getSize(){
         return size;
     }
