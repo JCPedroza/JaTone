@@ -6,3 +6,4 @@
 - implement a better, cleaner, way to overload your constructor, maybe use a factory as suggested in effective java
 - finish implementing invert(), maybe it needs a secondivnersion thirdinversion etc dynamic? maybe using originalNotes as a reference point, maybe it can be done by using the int argument instead of the python implementation of doing the inversion x times also implement a inversion dynamic that applies invert() to the opposite side, for example: from inversion two to inversion one
 - implement the copy constructor in your classes!
+- implement process methods inside classes if possible
