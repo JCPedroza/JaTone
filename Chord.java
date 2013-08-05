@@ -43,7 +43,10 @@ public class Chord extends NoteGroup{
     // Inversions
     // invert(): Rotates the order of the notes. 1 puts the first note of the list in the last spot of the list, 2
     // puts the first two notes of the list in the last spots of the list, and so on. Negative parameter does the 
-    // opposite, putting n items from the last spots of the list to the front.
+    // opposite, putting n items from the last spots of the list to the front. 
+    // invert(1); builds the first inversion of the current position of notes, invert(2) the second inversion,
+    // invert(-1) goes back one inversion, and so on. The important difference between this and xInversion 
+    // is that xInversion works based on originalNotes, so it ignores the current order of notes.
     public void invert(int n){
     	rotateNotes(n);
     }
