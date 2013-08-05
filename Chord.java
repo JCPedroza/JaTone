@@ -51,5 +51,29 @@ public class Chord extends NoteGroup{
     public void invert(){
     	rotateNotes(1);
     }
+    // firstInversion(): changes the order of notes, and builds the first inversion of the chord based on 
+    // originalNotes.
+    public void firstInversion(){
+    	setNotes(new ArrayList<Note>(getOriginalNotes()));
+    	rotateNotes(1);
+    }
+    // secondInversion(): changes the order of notes, and builds the second inversion of the chord based on 
+    // originalNotes.
+    public void secondInversion(){
+    	setNotes(new ArrayList<Note>(getOriginalNotes()));
+    	rotateNotes(2);
+    }
+    // thirdInversion(): changes the order of notes, and builds the second inversion of the chord based on 
+    // originalNotes.
+    public void thirdInversion(){
+    	setNotes(new ArrayList<Note>(getOriginalNotes()));
+    	rotateNotes(3);
+    }
+    // fourthInversion(): changes the order of notes, and builds the second inversion of the chord based on 
+    // originalNotes.
+    public void fourthInversion(){
+    	setNotes(new ArrayList<Note>(getOriginalNotes()));
+    	rotateNotes(4);
+    }
     
 }
