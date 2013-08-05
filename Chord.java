@@ -30,7 +30,7 @@ public class Chord extends NoteGroup{
     public Chord(String[] newNotes){
     	super(newNotes);
     }
-    //Copy constructor
+    // Copy constructor
     // Chord -> Chord
     public Chord(Chord newChord){
     	super(newChord);
@@ -74,6 +74,10 @@ public class Chord extends NoteGroup{
     public void fourthInversion(){
     	setNotes(new ArrayList<Note>(getOriginalNotes()));
     	rotateNotes(4);
+    }
+    // noInversion: changes the order of notes, builds the original order of the chord
+    public void noInversion(){
+    	setNotes(new ArrayList<Note>(getOriginalNotes()));
     }
     
 }
