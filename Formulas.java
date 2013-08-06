@@ -24,6 +24,12 @@ public class Formulas{
     public int[] locrian    = {1, 2, 2, 1, 2, 2, 2};  // locrian
     
     // Melodic minor derived formulas
+    public int[] melodicmin   = {2, 1, 2, 2, 2, 2, 1}; // melodic minor
+    public int[] dorianb9     = {1, 2, 2, 2, 2, 1, 2}; // dorian flat 9
+    public int[] lydianaug    = {2, 2, 2, 2, 1, 2, 1}; // lydian augmented
+    public int[] lydianb7     = {2, 2, 2, 1, 2, 1, 2}; // lydian flat 7
+    public int[] mixob13      = {2, 2, 1, 2, 1, 2, 2}; // mixolydian flat 13
     public int[] semilocrian  = {2, 1, 2, 1, 2, 2, 2}; // semilocrian
     public int[] superlocrian = {1, 2, 1, 2, 2, 2, 2}; // superlocrian
+    
 }
