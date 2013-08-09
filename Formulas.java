@@ -7,8 +7,8 @@ public class Formulas{
     //===================================================================
 	
     // Formulas for pentatonic scales
-    private int[] pentmin = {3, 2, 2, 3, 2};  // minor pentatonic
-    private int[] pentmaj = {2, 2, 3, 2, 3};  // major pentatonic
+    private int[] minorPentatonic = {3, 2, 2, 3, 2};  // minor pentatonic
+    private int[] majorPentatonic = {2, 2, 3, 2, 3};  // major pentatonic
     
     // Formulas for hexatonic scales
     private int[] minblues   = {3, 2, 1, 1, 3, 2};  // minor blues 
@@ -47,6 +47,14 @@ public class Formulas{
     //                            Getters 
     //===================================================================
     
+    // Getters for pentatonic scales
+    public int[] getMinorPentatonic(){
+    	return minorPentatonic;
+    }
+    public int[] getMajorPentatonic(){
+    	return majorPentatonic;
+    }
+    
     // Getters for melodic minor derived formulas
     public int[] getMelodicMinor(){
     	return melodicMinor;
@@ -69,6 +77,7 @@ public class Formulas{
     public int[] getSuperLocrian(){
     	return superLocrian;
     }
+    
     // Getters for major derived formulas
     public int[] getLydian(){
     	return lydian;
