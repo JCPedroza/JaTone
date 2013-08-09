@@ -30,13 +30,13 @@ public class Formulas{
     private int[] locrian    = {1, 2, 2, 1, 2, 2, 2};  // locrian
     
     // Melodic minor derived formulas
-    private int[] melodicmin   = {2, 1, 2, 2, 2, 2, 1}; // melodic minor
-    private int[] dorianb9     = {1, 2, 2, 2, 2, 1, 2}; // dorian flat 9
-    private int[] lydianaug    = {2, 2, 2, 2, 1, 2, 1}; // lydian augmented
-    private int[] lydianb7     = {2, 2, 2, 1, 2, 1, 2}; // lydian flat 7
-    private int[] mixob13      = {2, 2, 1, 2, 1, 2, 2}; // mixolydian flat 13
-    private int[] semilocrian  = {2, 1, 2, 1, 2, 2, 2}; // semilocrian
-    private int[] superlocrian = {1, 2, 1, 2, 2, 2, 2}; // superlocrian
+    private int[] melodicMinor     = {2, 1, 2, 2, 2, 2, 1}; // melodic minor
+    private int[] dorianFlat9      = {1, 2, 2, 2, 2, 1, 2}; // dorian flat 9
+    private int[] lydianAugmented  = {2, 2, 2, 2, 1, 2, 1}; // lydian augmented
+    private int[] lydianFlat7      = {2, 2, 2, 1, 2, 1, 2}; // lydian flat 7
+    private int[] mixolydianFlat13 = {2, 2, 1, 2, 1, 2, 2}; // mixolydian flat 13
+    private int[] semiLocrian      = {2, 1, 2, 1, 2, 2, 2}; // semilocrian
+    private int[] superLocrian     = {1, 2, 1, 2, 2, 2, 2}; // superlocrian
     
     // Harmonic minor derived formulas
     private int[] harmmin    = {2, 1, 2, 2, 1, 3, 1}; // harmonic minor
@@ -47,6 +47,28 @@ public class Formulas{
     //                            Getters 
     //===================================================================
     
+    // Getters for melodic minor derived formulas
+    public int[] getMelodicMinor(){
+    	return melodicMinor;
+    }
+    public int[] getDorianFlat9(){
+    	return dorianFlat9;
+    }
+    public int[] getLydianAugmented(){
+    	return lydianAugmented;
+    }
+    public int[] getLydianFlat7(){
+    	return lydianFlat7;
+    }
+    public int[] getMixolydianFlat13(){
+    	return mixolydianFlat13;
+    }
+    public int[] getSemiLocrian(){
+    	return semiLocrian;
+    }
+    public int[] getSuperLocrian(){
+    	return superLocrian;
+    }
     // Getters for major derived formulas
     public int[] getLydian(){
     	return lydian;
