@@ -1,7 +1,11 @@
 // !!! getters
 
 public class Formulas{
-
+    
+	//===================================================================
+    //                      Instance Variables
+    //===================================================================
+	
     // Formulas for pentatonic scales
     private int[] pentmin = {3, 2, 2, 3, 2};  // minor pentatonic
     private int[] pentmaj = {2, 2, 3, 2, 3};  // major pentatonic
@@ -39,4 +43,15 @@ public class Formulas{
     private int[] locriansh7 = {1, 2, 2, 1, 3, 1, 2}; // locrian sharp 7
     private int[] ionianaug  = {2, 2, 1, 3, 1, 2, 1}; // ionian augmented
     
+    //===================================================================
+    //                            Getters 
+    //===================================================================
+    
+    // Getters for major derived formulas
+    public int[] getAeolian(){
+    	return aeolian;
+    }
+    public int[] getIonian(){
+    	return ionian;
+    }
 }
