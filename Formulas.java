@@ -48,10 +48,26 @@ public class Formulas{
     //===================================================================
     
     // Getters for major derived formulas
-    public int[] getAeolian(){
-    	return aeolian;
+    public int[] getLydian(){
+    	return lydian;
     }
     public int[] getIonian(){
     	return ionian;
     }
+    public int[] getMixolydian(){
+    	return mixolydian;
+    }
+    public int[] getDorian(){
+    	return dorian;
+    }
+    public int[] getAeolian(){
+    	return aeolian;
+    }
+    public int[] getPhrygian(){
+    	return phrygian;
+    }
+    public int[] getLocrian(){
+    	return locrian;
+    }
+   
 }
