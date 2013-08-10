@@ -47,12 +47,23 @@ public class Formulas{
     //                            Getters 
     //===================================================================
     
-    // Getters for pentatonic scales
+    // Getters for pentatonic scale formulas
     public int[] getMinorPentatonic(){
     	return minorPentatonic;
     }
     public int[] getMajorPentatonic(){
     	return majorPentatonic;
+    }
+    
+    // Getters for hexatonic scale formulas
+    public int[] getTritone(){
+    	return tritone;
+    }
+    public int[] getAugmented(){
+    	return augmented;
+    }
+    public int[] getIstrian(){
+    	return istrian;
     }
     
     // Getters for melodic minor derived formulas
