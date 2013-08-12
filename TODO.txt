@@ -10,3 +10,4 @@
 - more xInversion modes that work on current order of notes and not based on originalNotes
 - a Theory class, which would be a set of rules, like what scales are available on different modes, so the computer can pick one; it should be aware of the melody of past measures (up to x measures?), aware of what's next, etc
 - javadoc comments using /** */ delimitators, and arroba for comments on parameters and return values
+-personalize javadoc 
