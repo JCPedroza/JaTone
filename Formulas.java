@@ -11,14 +11,14 @@ public class Formulas{
     private int[] majorPentatonic = {2, 2, 3, 2, 3};  // major pentatonic
     
     // Formulas for hexatonic scales
-    private int[] minblues   = {3, 2, 1, 1, 3, 2};  // minor blues 
-    private int[] majblues   = {2, 1, 1, 3, 2, 3};  // major blues
-    private int[] prometheus = {2, 2, 2, 3, 1, 2};  // prometheus - mystic
-    private int[] istrian    = {1, 2, 1, 2, 1, 5};  // istrian
-    private int[] wholetone  = {2, 2, 2, 2, 2, 2};  // whole tone
-    private int[] augmented  = {3, 1, 3, 1, 3, 1};  // augmented - symmetrical augmented
-    private int[] tritone    = {1, 3, 2, 1, 3, 2};  // tritone 
-    private int[] twosemitri = {1, 1, 4, 1, 1, 4};  // two semitone tritone 
+    private int[] minblues           = {3, 2, 1, 1, 3, 2};  // minor blues 
+    private int[] majblues           = {2, 1, 1, 3, 2, 3};  // major blues
+    private int[] prometheus         = {2, 2, 2, 3, 1, 2};  // prometheus - mystic
+    private int[] istrian            = {1, 2, 1, 2, 1, 5};  // istrian
+    private int[] wholeTone          = {2, 2, 2, 2, 2, 2};  // whole tone
+    private int[] augmented          = {3, 1, 3, 1, 3, 1};  // augmented - symmetrical augmented
+    private int[] tritone            = {1, 3, 2, 1, 3, 2};  // tritone 
+    private int[] twoSemitoneTritone = {1, 1, 4, 1, 1, 4};  // two semitone tritone 
     
     // Major derived formulas
     private int[] lydian     = {2, 2, 2, 1, 2, 2, 1};  // lydian
@@ -56,6 +56,12 @@ public class Formulas{
     }
     
     // Getters for hexatonic scale formulas
+    public int[] getMinBlues(){
+    	return minblues;
+    }
+    public int[] getMajBlues(){
+    	return majblues;
+    }
     public int[] getTritone(){
     	return tritone;
     }
@@ -64,6 +70,15 @@ public class Formulas{
     }
     public int[] getIstrian(){
     	return istrian;
+    }
+    public int[] getWholeTone(){
+    	return wholeTone;
+    }
+    public int[] getPrometheus(){
+    	return prometheus;
+    }
+    public int[] getTwoSemitoneTritone(){
+    	return twoSemitoneTritone;
     }
     
     // Getters for melodic minor derived formulas
