@@ -39,9 +39,9 @@ public class Formulas{
     private int[] superLocrian     = {1, 2, 1, 2, 2, 2, 2}; // superlocrian
     
     // Harmonic minor derived formulas
-    private int[] harmmin    = {2, 1, 2, 2, 1, 3, 1}; // harmonic minor
-    private int[] locriansh7 = {1, 2, 2, 1, 3, 1, 2}; // locrian sharp 7
-    private int[] ionianaug  = {2, 2, 1, 3, 1, 2, 1}; // ionian augmented
+    private int[] harmonicMinor   = {2, 1, 2, 2, 1, 3, 1}; // harmonic minor
+    private int[] locrianSharp7   = {1, 2, 2, 1, 3, 1, 2}; // locrian sharp 7
+    private int[] ionianAugmented = {2, 2, 1, 3, 1, 2, 1}; // ionian augmented
     
     //===================================================================
     //                            Getters 
@@ -125,6 +125,17 @@ public class Formulas{
     }
     public int[] getLocrian(){
     	return locrian;
+    }
+    
+    // Getters for harmonic minor derived formulas
+    public int[] getHarmonicMinor(){
+    	return harmonicMinor;
+    }
+    public int[] getLocrianSharp7(){
+    	return locrianSharp7;
+    }
+    public int[] getIonianAugmented(){
+    	return ionianAugmented;
     }
    
 }
