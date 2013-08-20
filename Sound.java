@@ -30,8 +30,8 @@ public class Sound{
     
     @Override
     public String toString(){
-    	return ("frequency: " + frequency + " velocity: " + velocity + " attack:  " + attack +
-    			"decay: "     + decay     + " sustain: "  + sustain  + " release: " + release);
+    	return  "frequency: " + frequency + " velocity: " + velocity + " attack: "  + attack +
+    			" decay: "    + decay     + " sustain: "  + sustain  + " release: " + release;
     }
     
     //===================================================================
