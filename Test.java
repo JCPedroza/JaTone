@@ -82,6 +82,8 @@ public class Test{
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"G", "C", "E"}));
 		aChord3.noInversion();
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"C", "E", "G"}));
+		// toString(); tests
+		assertEquals(aNoteA.toString(), "frequency: 440.0 velocity: 60 attack: 1 decay: 1 sustain: 127 release: 1");
 		
 		// Process Tests -------------------------------
 		
