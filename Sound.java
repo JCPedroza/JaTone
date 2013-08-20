@@ -1,6 +1,8 @@
 public class Sound{
     
-    // Instance variables
+	//===================================================================
+    //                     Instance Variables
+    //===================================================================
     private double frequency;
     private int    velocity;
     private int    attack;
@@ -8,7 +10,10 @@ public class Sound{
     private int    sustain;
     private int    release;
     
-    // Constructor
+    //===================================================================
+    //                       Constructors
+    //===================================================================
+    
     public Sound(double freq, int vel, int att, int dec, int sus, int rel){
         frequency = freq;
         velocity  = vel;
@@ -18,48 +23,65 @@ public class Sound{
         release   = rel;
     }
 
-    // Getters & Setters
-    public void setFrequency(double freq){
-        frequency = freq;
-    }
+    //===================================================================
+    //                          Getters
+    //===================================================================
+    
     public double getFrequency(){
         return frequency;
     }
+    
+    public int getVelocity(){
+        return velocity;
+    }
+    
+    public int getAttack(){
+        return attack;
+    }
+    
+    public int getDecay(){
+        return decay;
+    }
+    
+    public int getSustain(){
+        return sustain;
+    }
+    
+    public int getRelease(){
+        return release;
+    }
+    
+    //===================================================================
+    //                          Setters
+    //===================================================================
+    
+    public void setFrequency(double freq){
+        frequency = freq;
+    }
+    
 
     public void setVelocity(int vel){
         velocity = vel;
     }
-    public int getVelocity(){
-        return velocity;
-    }
+    
 
     public void setAttack(int att){
         attack = att;
     }
-    public int getAttack(){
-        return attack;
-    }
+    
 
     public void setDecay(int dec){
         decay = dec;
     }
-    public int getDecay(){
-        return decay;
-    }
+    
 
     public void setSustain(int sus){
         sustain = sus;
     }
-    public int getSustain(){
-        return sustain;
-    }
+    
 
     public void setRelease(int rel){
         release = rel;
     }
-    public int getRelease(){
-        return release;
-    }
-
 
 }
