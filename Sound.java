@@ -3,6 +3,7 @@ public class Sound{
 	//===================================================================
     //                     Instance Variables
     //===================================================================
+	
     private double frequency;
     private int    velocity;
     private int    attack;
@@ -22,7 +23,17 @@ public class Sound{
         sustain   = sus;
         release   = rel;
     }
-
+    
+    //===================================================================
+    //                          Methods
+    //===================================================================
+    
+    @Override
+    public String toString(){
+    	return ("frequency: " + frequency + " velocity: " + velocity + " attack:  " + attack +
+    			"decay: "     + decay     + " sustain: "  + sustain  + " release: " + release);
+    }
+    
     //===================================================================
     //                          Getters
     //===================================================================
@@ -59,27 +70,22 @@ public class Sound{
         frequency = freq;
     }
     
-
     public void setVelocity(int vel){
         velocity = vel;
     }
     
-
     public void setAttack(int att){
         attack = att;
     }
     
-
     public void setDecay(int dec){
         decay = dec;
     }
     
-
     public void setSustain(int sus){
         sustain = sus;
     }
     
-
     public void setRelease(int rel){
         release = rel;
     }
