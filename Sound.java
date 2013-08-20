@@ -22,21 +22,13 @@ public class Sound{
     //                       Constructors
     //===================================================================
     
-    /** 
-    * @param freq frequency 
-    * @param vel  velocity
-    * @param att  attack
-    * @param dec  decay
-    * @param sus  sustain
-    * @param rel  release
-    */
-    public Sound(double freq, int vel, int att, int dec, int sus, int rel){
-        frequency = freq;
-        velocity  = vel;
-        attack    = att;
-        decay     = dec;
-        sustain   = sus;
-        release   = rel;
+    public Sound(double frequency, int velocity, int attack, int decay, int sustain, int release){
+        this.frequency = frequency;
+        this.velocity  = velocity;
+        this.attack    = attack;
+        this.decay     = decay;
+        this.sustain   = sustain;
+        this.release   = release;
     }
     
     //===================================================================
