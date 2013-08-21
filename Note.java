@@ -25,9 +25,9 @@ public class Note extends Sound{
     
     @Override
     public String toString(){
-    	return  "name: "     + name        + " frequency: " + getFrequency() + " velocity: " + getVelocity() + 
-    			" attack: "  + getAttack() + " decay: "     + getDecay()     + " sustain: "  + getSustain()  + 
-    			" release: " + getRelease();
+    	return  "name: "     + name         + " frequency: " + getFrequency() + " velocity: " + getVelocity() + 
+    			" attack: "  + getAttack()  + " decay: "     + getDecay()     + " sustain: "  + getSustain()  + 
+    			" release: " + getRelease() + " isActive: "  + String.valueOf(getIsActive());
     }
     
     //===================================================================
