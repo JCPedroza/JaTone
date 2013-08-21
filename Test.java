@@ -4,6 +4,7 @@ import java.util.*;
 public class Test{
 	
 	// Instance variables for use with testing
+	Sound        aSoundA      = new Sound(100, 100, 100, 100, 100, 100);
 	Note         aNoteA       = new Note("A", 440, 60, 1, 1, 127, 1);
 	Note         aNoteB       = new Note("B", 440, 60, 1, 1, 127, 1);
 	Note         aNoteC       = new Note("C", 450, 61, 2, 4, 125, 6);
@@ -50,6 +51,7 @@ public class Test{
 		assertEquals(aScale3.getName(), "ACE");
 	    assertEquals(aScale4.getName(), "ABCDEFG");
 		assertEquals(aChG1.getChordsAsString(), Arrays.toString(new String[] {"Am", "ACE"}));
+		
 		// Copy constructor tests
 		aNoteGroup2.addNote(aNoteB);
 		assertEquals(aNoteGroup2.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E", "B"}));
@@ -57,6 +59,7 @@ public class Test{
 		aChordb.addNote(aNoteC);
 		assertEquals(aChordb.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E", "C"}));
 		assertEquals(aChorda.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E"}));
+		
 		// Chord invert(), NoteGoup rotateNotes(), and originalNotes: aChord3 initial state = C E G
 		// Tests for inversion dynamics and originalNotes not changing
 		aChord3.invert();
@@ -72,9 +75,11 @@ public class Test{
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"E", "G", "C"}));
 		aChord3.invert(-1);
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"G", "C", "E"}));
+		
 		// Test for reset
 		aChord3.reset();
 		assertEquals(aChord3.getNotesAsString(), Arrays.toString(new String[] {"C", "E", "G"}));
+		
 		// Tests for inversions based on originalNotes
 		aChord3.secondInversion();
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"E", "G", "C"}));
@@ -82,8 +87,10 @@ public class Test{
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"G", "C", "E"}));
 		aChord3.noInversion();
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"C", "E", "G"}));
+		
 		// toString(); tests
-		assertEquals(aNoteA.toString(), "frequency: 440.0 velocity: 60 attack: 1 decay: 1 sustain: 127 release: 1");
+		assertEquals(aNoteA.toString(), "name: A frequency: 440.0 velocity: 60 attack: 1 decay: 1 sustain: 127 release: 1");
+		assertEquals(aSoundA.toString(), "frequency: 100.0 velocity: 100 attack: 100 decay: 100 sustain: 100 release: 100 isActive: true");
 		
 		// Process Tests -------------------------------
 		
@@ -122,6 +129,7 @@ public class Test{
 			         Arrays.toString(new String[] {"CEGBDF", "DFACEG", "EGBDFA", "FACEGB", "GBDFAC", "ACEGBD", "BDFACE"}));
 		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.getIonian()), 5).getChordsAsString(),
 		             Arrays.toString(new String[] {"CEGBDFA", "DFACEGB", "EGBDFAC", "FACEGBD", "GBDFACE", "ACEGBDF", "BDFACEG"}));
+		
 		// harmonize()
 		assertEquals(aProcess.harmonize(aStrNoteA).getChordsAsString(), 
 				     Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
