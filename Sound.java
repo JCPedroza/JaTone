@@ -2,7 +2,7 @@
 
 /**
 * Superclass for everything that produces a sound. The instance variables include only the most basic characteristics of a sound:
-* the frequency, the velocity, and the envelope (attack, decay sustain, release). Other classes that extend Sound implement other
+* the frequency, the velocity, is it active?, and the envelope (attack, decay sustain, release). Other classes that extend Sound implement other
 * characteristics, like name.
 */
 public class Sound{
@@ -73,36 +73,37 @@ public class Sound{
     */
     @Override
     public String toString(){
-    	return  "frequency: " + frequency + " velocity: " + velocity + " attack: "  + attack +
-    			" decay: "    + decay     + " sustain: "  + sustain  + " release: " + release;
+    	return  "frequency: " + frequency + " velocity: " + velocity + " attack: "  + attack  +
+    			" decay: "    + decay     + " sustain: "  + sustain  + " release: " + release +
+    			" isActive: " + String.valueOf(isActive);
     }
     
     //===================================================================
     //                          Setters
     //===================================================================
     
-    public void setFrequency(double freq){
-        frequency = freq;
+    public void setFrequency(double frequency){
+        this.frequency = frequency;
     }
     
-    public void setVelocity(int vel){
-        velocity = vel;
+    public void setVelocity(int velocity){
+        this.velocity = velocity;
     }
     
-    public void setAttack(int att){
-        attack = att;
+    public void setAttack(int attack){
+        this.attack = attack;
     }
     
-    public void setDecay(int dec){
-        decay = dec;
+    public void setDecay(int decay){
+        this.decay = decay;
     }
     
-    public void setSustain(int sus){
-        sustain = sus;
+    public void setSustain(int sustain){
+        this.sustain = sustain;
     }
     
-    public void setRelease(int rel){
-        release = rel;
+    public void setRelease(int release){
+        this.release = release;
     }
     
     public void setIsActive(boolean isActive){
