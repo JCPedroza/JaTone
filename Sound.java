@@ -15,33 +15,43 @@ public class Sound{
 	* The frequency of the sound in no particular unit. A frequency of -1 means that the value was not set, and it is the default value. 
 	* Hertz are recommended as unit for compatibility with other devices, programs, and dynamics. 
 	*/
-    private double frequency;
+    private double  frequency;
+    
     /**
     * The velocity of the sound in no particular unit. MIDI range (0 to 127) is recommended for compatibility with MIDI dynamics. 
     */
-    private int    velocity;
+    private int     velocity;
+    
     /**
     * The time it takes the sound to reach its highest amplitude. It has no particular unit, and MIDI range (0 to 127) is recommended 
     * for compatibility with MIDI dynamics.
     */
-    private int    attack;
+    private int     attack;
+    
     /**
     * The time it takes the sound to reach the sustain level after the highest amplitude was reached. It has no particular unit, 
     * and MIDI range (0 to 127) is recommended for compatibility with MIDI dynamics.
     */
-    private int    decay;
+    private int     decay;
+    
     /**
     * The amplitude of the sound will keep while true. It has no particular unit, and MIDI range (0 to 127) is recommended for 
     * compatibility with MIDI dynamics.
     */
-    private int    sustain;
+    private int     sustain;
+    
     /**
     * The time it takes the sound to reach zero amplitude from its current amplitude, it's triggered by soundOn = false.
     */
-    private int    release;
+    private int     release;
+    
+    /**
+    * Represents if the sound is active (true) or not active (false).
+    */
+    private boolean isActive;
     
     //===================================================================
-    //                       Constructors
+    //                         Constructors
     //===================================================================
     
     public Sound(double frequency, int velocity, int attack, int decay, int sustain, int release){
@@ -51,6 +61,7 @@ public class Sound{
         this.decay     = decay;
         this.sustain   = sustain;
         this.release   = release;
+        this.isActive  = true;
     }
     
     //===================================================================
@@ -93,6 +104,10 @@ public class Sound{
     public void setRelease(int rel){
         release = rel;
     }
+    
+    public void setIsActive(boolean isActive){
+    	this.isActive = isActive;
+    }
 
     //===================================================================
     //                          Getters
@@ -120,5 +135,9 @@ public class Sound{
     
     public int getRelease(){
         return release;
+    }
+    
+    public boolean getIsActive(){
+    	return isActive;
     }
 }
