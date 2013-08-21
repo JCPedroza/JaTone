@@ -19,6 +19,17 @@ public class Note extends Sound{
     }
 
     //===================================================================
+    //                          Methods
+    //===================================================================
+    
+    @Override
+    public String toString(){
+    	return  "name: "     + name        + " frequency: " + getFrequency() + " velocity: " + getVelocity() + 
+    			" attack: "  + getAttack() + " decay: "     + getDecay()     + " sustain: "  + getSustain()  + 
+    			" release: " + getRelease();
+    }
+    
+    //===================================================================
     //                          Setters
     //===================================================================
     
