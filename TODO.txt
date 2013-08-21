@@ -13,3 +13,5 @@
 - include all you can from systematic program design to the javadoc comments
 - make all parameters clearer by avoiding the use of short names, use comple
 names and use this if conflicts are found
+- change the names and implementations of the formulas to constants: that 
+means they are final and will be written in mayus
