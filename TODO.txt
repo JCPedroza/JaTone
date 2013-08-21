@@ -11,3 +11,5 @@
 - javadoc comments using /** */ delimitators, and arroba for comments on parameters and return values
 -personalize javadoc 
 - include all you can from systematic program design to the javadoc comments
+- make all parameters clearer by avoiding the use of short names, use comple
+names and use this if conflicts are found
