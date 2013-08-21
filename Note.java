@@ -14,8 +14,9 @@ public class Note extends Sound{
         super(frequency, velocity, attack, decay, sustain, release);
         this.name = name;
     }
-    public Note(String startName){
-    	this(startName, -1, 63, 1, 1, 127, 1);  	
+    
+    public Note(String name){
+    	this(name, -1, 63, 1, 1, 127, 1);  	
     }
 
     //===================================================================
