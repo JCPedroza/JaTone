@@ -15,3 +15,5 @@
 names and use this if conflicts are found
 - change the names and implementations of the formulas to constants: that 
 means they are final and will be written in mayus
+- implementa note namer in the note class that will name the note based in its
+frequency 
