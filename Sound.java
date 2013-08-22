@@ -1,4 +1,5 @@
 // !!! Needs more constructors!
+// !!! and signatures maybe?
 
 /**
 * Superclass for everything that produces a sound. The instance variables include only the most basic characteristics of a sound:
@@ -69,7 +70,7 @@ public class Sound{
     //===================================================================
     
     /**
-    * @return the current state of the Sound as a string
+    * @return The current state of the Sound as a string.
     */
     @Override
     public String toString(){

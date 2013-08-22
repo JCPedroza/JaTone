@@ -5,7 +5,7 @@ public class Note extends Sound{
     //===================================================================
 	
 	/**
-	* The name of the note 
+	* The name of the note.
 	*/
     private String name;
     
@@ -27,7 +27,7 @@ public class Note extends Sound{
     //===================================================================
     
     /**
-    * @return the current state of the Sound as a string
+    * @return The current state of the Sound as a string.
     */
     @Override
     public String toString(){
