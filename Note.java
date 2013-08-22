@@ -4,6 +4,9 @@ public class Note extends Sound{
     //                     Instance Variables
     //===================================================================
 	
+	/**
+	* The name of the note 
+	*/
     private String name;
     
     //===================================================================
@@ -23,6 +26,9 @@ public class Note extends Sound{
     //                          Methods
     //===================================================================
     
+    /**
+    * @return the current state of the Sound as a string
+    */
     @Override
     public String toString(){
     	return  "name: "     + name         + " frequency: " + getFrequency() + " velocity: " + getVelocity() + 
