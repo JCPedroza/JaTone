@@ -17,3 +17,4 @@ names and use this if conflicts are found
 means they are final and will be written in mayus
 - implementa note namer in the note class that will name the note based in its
 frequency 
+- copy constructors (to make copies of classes), and javadoc them.
