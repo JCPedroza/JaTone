@@ -1,3 +1,8 @@
+/**
+* A Note is a Sound that belongs to a system, and has a name. Like the notes in the twelve-tone equal temperament system, and the notes
+* in a scale and a chord. 
+*/
+
 public class Note extends Sound{
 
 	//===================================================================
@@ -27,7 +32,7 @@ public class Note extends Sound{
     //===================================================================
     
     /**
-    * @return The current state of the Sound as a string.
+    * @return The current state of the Sound as a String.
     */
     @Override
     public String toString(){
