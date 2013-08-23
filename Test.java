@@ -23,6 +23,7 @@ public class Test{
 	List<String> aPool3       = new ArrayList<String>(Arrays.asList(aPool2));
 	// Copy constructor test
 	NoteGroup    aNoteGroup1  = new NoteGroup(aNoteList);
+	NoteGroup    aNoteGroup3  = new NoteGroup(aNoteList2); 
 	Chord        aChorda      = new Chord(aNoteList);
 	Scale        aScalea      = new Scale(aNoteList2);
 	NoteGroup    aNoteGroup2  = new NoteGroup(aNoteGroup1);
@@ -89,8 +90,12 @@ public class Test{
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"C", "E", "G"}));
 		
 		// toString(); tests
-		assertEquals(aNoteA.toString(), "name: A frequency: 440.0 velocity: 60 attack: 1 decay: 1 sustain: 127 release: 1");
+		assertEquals(aNoteA.toString(), "name: A frequency: 440.0 velocity: 60 attack: 1 decay: 1 sustain: 127 release: 1 isActive: true");
 		assertEquals(aSoundA.toString(), "frequency: 100.0 velocity: 100 attack: 100 decay: 100 sustain: 100 release: 100 isActive: true");
+		assertEquals(aNoteGroup1.toString(), "size: 3 notes: [A, C, E] originalNotes: [A, C, E]name: ACE secondaryName: null");
+		aNoteGroup1.setSecondaryName("a secondary name"); // sets a secondary name for aNoteGroup1
+		assertEquals(aNoteGroup1.toString(), "size: 3 notes: [A, C, E] originalNotes: [A, C, E]name: ACE secondaryName: a secondary name");
+		
 		
 		// Process Tests -------------------------------
 		
