@@ -128,14 +128,6 @@ public class NoteGroup{
     	size  = newNotes.size();
     }
     
-    /**
-    * Collections.rotate() caller for subclasses
-    * @param distance The distance to rotate the List.
-    */
-    public void rotateNotes(int distance){
-    	Collections.rotate(notes, distance);
-    }
-    
     public void setName(String newName){
     	name = newName;
     }
@@ -187,6 +179,14 @@ public class NoteGroup{
     	notes = new ArrayList<Note>(originalNotes);
     }
     
+    /**
+     * Collections.rotate() caller for subclasses
+     * @param distance The distance to rotate the List.
+     */
+     public void rotateNotes(int distance){
+     	Collections.rotate(notes, distance);
+     }
+     
     //===================================================================
     //                       Special Getters
     //===================================================================
@@ -213,5 +213,11 @@ public class NoteGroup{
         	noteNames.add(e.getName());
         }
         return Arrays.toString(noteNames.toArray(new String[noteNames.size()]));
+    }
+    
+    @Override
+    public String toString(){
+    	return "size: "  + size + " notes: "         + getNotesAsString() + " originalNotes: " + getOriginalNotesAsString() +
+    			"name: " + name + " secondaryName: " + secondaryName;
     }
 }
