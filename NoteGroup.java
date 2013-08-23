@@ -92,8 +92,13 @@ public class NoteGroup{
     	name  = makeName(notes);
     	originalNotes = new ArrayList<Note>(noteList);
     }
-    // Copy constructor
+
     // NoteGroup -> NoteGroup
+    /**
+    * Copy constructor. Use this to make copies of NoteGroup objects. 
+    * @param newNoteGroup The NoteGroup object to be copied.
+    * @return A copy of the input object.
+    */
     public NoteGroup(NoteGroup newNoteGroup){
         this(newNoteGroup.getNotes(), newNoteGroup.getName());
         secondaryName = newNoteGroup.getSecondaryName();
