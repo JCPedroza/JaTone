@@ -185,7 +185,7 @@ public class NoteGroup{
     }
     
     /**
-     * Collections.rotate() caller for subclasses
+     * Collections.rotate() caller for subclasses.
      * @param distance The distance to rotate the List.
      */
      public void rotateNotes(int distance){
