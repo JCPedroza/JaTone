@@ -1,4 +1,4 @@
-// !!! Needs more constructors!
+// !!! Needs more constructors! (wait until you read about factories though)
 // !!! and signatures maybe?
 
 /**
@@ -68,16 +68,7 @@ public class Sound{
     //===================================================================
     //                          Methods
     //===================================================================
-    
-    /**
-    * @return The current state of the Sound as a string.
-    */
-    @Override
-    public String toString(){
-    	return  "frequency: " + frequency + " velocity: " + velocity + " attack: "  + attack  +
-    			" decay: "    + decay     + " sustain: "  + sustain  + " release: " + release +
-    			" isActive: " + String.valueOf(isActive);
-    }
+ 
     
     //===================================================================
     //                          Setters
@@ -142,4 +133,18 @@ public class Sound{
     public boolean getIsActive(){
     	return isActive;
     }
+    
+    //===================================================================
+    //                       Special Getters
+    //===================================================================
+    
+     /**
+     * @return The current state of the Sound as a String.
+     */
+     @Override
+     public String toString(){
+     	return  "frequency: " + frequency + " velocity: " + velocity + " attack: "  + attack  +
+     			" decay: "    + decay     + " sustain: "  + sustain  + " release: " + release +
+     			" isActive: " + String.valueOf(isActive);
+     }
 }

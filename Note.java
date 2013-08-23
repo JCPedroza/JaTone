@@ -31,15 +31,6 @@ public class Note extends Sound{
     //                          Methods
     //===================================================================
     
-    /**
-    * @return The current state of the Sound as a String.
-    */
-    @Override
-    public String toString(){
-    	return  "name: "     + name         + " frequency: " + getFrequency() + " velocity: " + getVelocity() + 
-    			" attack: "  + getAttack()  + " decay: "     + getDecay()     + " sustain: "  + getSustain()  + 
-    			" release: " + getRelease() + " isActive: "  + String.valueOf(getIsActive());
-    }
     
     //===================================================================
     //                          Setters
@@ -56,4 +47,18 @@ public class Note extends Sound{
     public String getName(){
         return name;
     }
+    
+    //===================================================================
+    //                       Special Getters
+    //===================================================================
+    
+     /**
+     * @return The current state of the Sound as a String.
+     */
+     @Override
+     public String toString(){
+     	return  "name: "     + name         + " frequency: " + getFrequency() + " velocity: " + getVelocity() + 
+     			" attack: "  + getAttack()  + " decay: "     + getDecay()     + " sustain: "  + getSustain()  + 
+     			" release: " + getRelease() + " isActive: "  + String.valueOf(getIsActive());
+     }
 }
