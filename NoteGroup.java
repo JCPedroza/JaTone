@@ -1,18 +1,46 @@
-import java.util.*;
 
+
+import java.util.*;
 
 // !!! needs to implement a constructor for List<string>, not possible atm
 // is using a generic List as input and then filtering the type on the 
 // same constructor the solution?
+/**
+* Superclass that represents a group of notes, like a chord or a scale.
+*/
 public class NoteGroup{
     
 	//===================================================================
     //                      Instance Variables
     //===================================================================
+	
+	/**
+	* The number of notes in the NoteGroup.
+	*/
     private int        size;
+    
+    /**
+    * List of the notes in the NoteGroup.
+    */
     private List<Note> notes;
+    
+    /**
+    * List of the original notes the NoteGroup was created with, in the original order. This is a reference for dynamics like
+    * applying inversion to the original state of the NoteGroup (as opposed to the current state of the NoteGroup), or reseting 
+    * the NoteGroup to its original state.  
+    */
     private List<Note> originalNotes;
+    
+    /**
+    * The name of the NoteGroup. It's recommended to use this field as the dynamic name field. You might want to change the name of 
+    * the NoteGroup as its notes and their order change, forming different chords, scales, etc.
+    */
     private String     name;
+    
+    /**
+    * The secondary name of the NoteGroup. It's recommended to use this field as the static, or "not-so-dynamic", name field. You
+    * might want to keep the object with a secondary name that doesn't change, while the name changes dynamically.
+    */
     private String     secondaryName; 
     
     //===================================================================
@@ -75,9 +103,13 @@ public class NoteGroup{
     //===================================================================
     //                             Methods
     //===================================================================
-    
-    // creates a name for the chord based on its notes, changes and returns the name
-    // makeName: List<Note> -> String
+     
+    /**
+    * Creates a name for the chord based on its notes, changes and returns the name. It's used to automatically
+    * give the NoteGroup a name when no name is specified. 
+    * @param noteList List with Note objects.
+    * @return String with the names of the Note objects.
+    */
     public String makeName(List<Note> noteList){
         String returnString = "";
         for (Note e : noteList){
@@ -96,9 +128,12 @@ public class NoteGroup{
     	size  = newNotes.size();
     }
     
-    // Collections.rotate() caller for subclasses
-    public void rotateNotes(int index){
-    	Collections.rotate(notes, index);
+    /**
+    * Collections.rotate() caller for subclasses
+    * @param distance The distance to rotate the List.
+    */
+    public void rotateNotes(int distance){
+    	Collections.rotate(notes, distance);
     }
     
     public void setName(String newName){
@@ -145,7 +180,9 @@ public class NoteGroup{
     //                       Special Setters
     //===================================================================
     
-    // reset(): resets the position and members of the notes list to original state, using originalNotes as reference
+    /**
+    * Resets the position and members of the notes List to their original state, using originalNotes as reference.
+    */
     public void reset(){
     	notes = new ArrayList<Note>(originalNotes);
     }
@@ -154,8 +191,10 @@ public class NoteGroup{
     //                       Special Getters
     //===================================================================
     
-    // getNotesAsString(): -> String
-    // Returns names of the notes as a String
+    /**
+    * Builds a string with the names of the Note objects.
+    * @return A string with the name of the Note objects. 
+    */
     public String getNotesAsString(){
         List<String> noteNames = new ArrayList<String>();
         for (Note e : notes){
@@ -164,8 +203,10 @@ public class NoteGroup{
         return Arrays.toString(noteNames.toArray(new String[noteNames.size()]));
     }
     
-    // getOriginalNotesAsString(): -> String
-    // Returns names of originalNotes as a String
+    /**
+    * Builds a string with the names of the Note objects in the originalNotes List. 
+    * @return A string with the name of the Note objects in the originalNotes List. 
+    */
     public String getOriginalNotesAsString(){
         List<String> noteNames = new ArrayList<String>();
         for (Note e : originalNotes){
