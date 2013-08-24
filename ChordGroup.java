@@ -6,8 +6,8 @@ public class ChordGroup{
     //                      Instance Variables
     //===================================================================
 	
-	private int         size;
 	private List<Chord> chords;
+	private int         size;
 	
 	//===================================================================
     //                        Constructors
@@ -53,5 +53,10 @@ public class ChordGroup{
         	noteList.add(e.getName());
         }
         return Arrays.toString(noteList.toArray(new String[noteList.size()]));
+    }
+    
+    @Override
+    public String toString(){
+    	return "chords: " + getChordsAsString() + " size: " + size;
     }
 }
