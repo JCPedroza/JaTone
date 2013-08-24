@@ -2,10 +2,16 @@ import java.util.*;
 
 public class Harmony extends ChordGroup{
     
-	// Instance variables
+	//===================================================================
+    //                      Instance Variables
+    //===================================================================
+	
 	private String name;
 	
-	// Constructors
+	//===================================================================
+    //                        Constructors
+    //===================================================================
+	
 	// !!! implement cases for String[][] as input?
 	// List String -> Harmony
 	public Harmony(List<Chord> newChordList, String newName){
@@ -17,10 +23,18 @@ public class Harmony extends ChordGroup{
 		this(newChordList, "none");
 	}
 	
-	// Setters & Getters
+	//===================================================================
+    //                            Setters 
+    //===================================================================
+	
 	public void setName(String newName){
 		name = newName;
 	}
+	
+	//===================================================================
+    //                          Getters
+    //===================================================================
+	
 	public String getName(){
 		return name;
 	}

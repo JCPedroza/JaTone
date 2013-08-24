@@ -55,6 +55,9 @@ public class ChordGroup{
         return Arrays.toString(noteList.toArray(new String[noteList.size()]));
     }
     
+    /**
+    * @return The state of the ChordGroup as a string.
+    */
     @Override
     public String toString(){
     	return "chords: " + getChordsAsString() + " size: " + size;

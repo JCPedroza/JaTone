@@ -93,7 +93,6 @@ public class NoteGroup{
     	originalNotes = new ArrayList<Note>(noteList);
     }
 
-    // NoteGroup -> NoteGroup
     /**
     * Copy constructor. Use this to make copies of NoteGroup objects. 
     * @param newNoteGroup The NoteGroup object to be copied.
@@ -102,7 +101,6 @@ public class NoteGroup{
         this(newNoteGroup.getNotes(), newNoteGroup.getName());
         secondaryName = newNoteGroup.getSecondaryName();
     }
-    
     
     //===================================================================
     //                             Methods
@@ -125,6 +123,7 @@ public class NoteGroup{
     //===================================================================
     //                            Setters 
     //===================================================================
+    
     // No setter for size since it depends on List size. List notes uses
     // an add/remove note dynamic. 
     public void setNotes(List<Note> newNotes){
@@ -149,9 +148,11 @@ public class NoteGroup{
         notes.remove(note);
         size--;
     }
+    
     //===================================================================
     //                            Getters 
     //===================================================================
+    
     public List<Note> getNotes(){
         return notes;
     } 
@@ -218,6 +219,7 @@ public class NoteGroup{
         }
         return Arrays.toString(noteNames.toArray(new String[noteNames.size()]));
     }
+    
     /**
     * @return The state of the NoteGroup as a string.  
     */

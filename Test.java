@@ -24,6 +24,9 @@ public class Test{
 	// Copy constructor test
 	NoteGroup    aNoteGroup1  = new NoteGroup(aNoteList);
 	NoteGroup    aNoteGroup3  = new NoteGroup(aNoteList2); 
+	Sound        aSoundB      = new Sound(aSoundA);
+	Note         aNoteXX      = new Note(aNoteA);
+	// End of copy constructor declarations
 	Chord        aChorda      = new Chord(aNoteList);
 	Scale        aScalea      = new Scale(aNoteList2);
 	NoteGroup    aNoteGroup2  = new NoteGroup(aNoteGroup1);
@@ -38,6 +41,9 @@ public class Test{
 	Scale        aScale4      = new Scale(aStrNoteA);
 	List<Chord>  aChList      = new ArrayList<Chord>(Arrays.asList(aChord1, aChord2));
 	ChordGroup   aChG1        = new ChordGroup(aChList);
+	// Copy constructor tests
+	ChordGroup   aChG2        = new ChordGroup(aChG1);
+	// End of copy constructor declarations
 	// Instances
 	Process      aProcess   = new Process();
 	Formulas     formulas   = new Formulas();
@@ -60,6 +66,9 @@ public class Test{
 		aChordb.addNote(aNoteC);
 		assertEquals(aChordb.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E", "C"}));
 		assertEquals(aChorda.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E"}));
+		assertEquals(aSoundA.toString(), aSoundB.toString());
+		assertEquals(aNoteA.toString(), aNoteXX.toString());
+		assertEquals(aChG1.toString(), aChG2.toString());
 		
 		// Chord invert(), NoteGoup rotateNotes(), and originalNotes: aChord3 initial state = C E G
 		// Tests for inversion dynamics and originalNotes not changing
@@ -95,7 +104,7 @@ public class Test{
 		assertEquals(aNoteGroup1.toString(), "size: 3 notes: [A, C, E] originalNotes: [A, C, E]name: ACE secondaryName: null");
 		aNoteGroup1.setSecondaryName("a secondary name"); // sets a secondary name for aNoteGroup1
 		assertEquals(aNoteGroup1.toString(), "size: 3 notes: [A, C, E] originalNotes: [A, C, E]name: ACE secondaryName: a secondary name");
-		
+		assertEquals(aChG1.toString(), "chords: [Am, ACE] size: 2");
 		
 		// Process Tests -------------------------------
 		
