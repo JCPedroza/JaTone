@@ -53,7 +53,7 @@ public class Note extends Sound{
     //===================================================================
     
      /**
-     * @return The current state of the Sound as a String.
+     * @return The state of the Sound as a String.
      */
      @Override
      public String toString(){

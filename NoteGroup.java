@@ -97,7 +97,6 @@ public class NoteGroup{
     /**
     * Copy constructor. Use this to make copies of NoteGroup objects. 
     * @param newNoteGroup The NoteGroup object to be copied.
-    * @return A copy of the input object.
     */
     public NoteGroup(NoteGroup newNoteGroup){
         this(newNoteGroup.getNotes(), newNoteGroup.getName());
@@ -219,7 +218,9 @@ public class NoteGroup{
         }
         return Arrays.toString(noteNames.toArray(new String[noteNames.size()]));
     }
-    
+    /**
+    * @return The state of the NoteGroup as a string.  
+    */
     @Override
     public String toString(){
     	return "size: "  + size + " notes: "         + getNotesAsString() + " originalNotes: " + getOriginalNotesAsString() +
