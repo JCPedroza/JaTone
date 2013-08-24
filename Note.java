@@ -26,6 +26,16 @@ public class Note extends Sound{
     public Note(String name){
     	this(name, -1, 63, 1, 1, 127, 1);  	
     }
+    
+    /**
+    * Copy constructor. Use this to make copies of Sound objects. 
+    * @param newNote The Sound object to be copied.
+    */
+     public Note(Note newNote){
+         this(newNote.getName(),  newNote.getFrequency(), newNote.getVelocity(), newNote.getAttack(),  
+              newNote.getDecay(), newNote.getSustain(),   newNote.getRelease());
+         setIsActive(newNote.getIsActive());
+     }
 
     //===================================================================
     //                          Methods
@@ -53,7 +63,7 @@ public class Note extends Sound{
     //===================================================================
     
      /**
-     * @return The state of the Sound as a String.
+     * @return The state of the Note as a String.
      */
      @Override
      public String toString(){
