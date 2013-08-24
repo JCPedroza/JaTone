@@ -1,5 +1,4 @@
 // !!! Needs more constructors! (wait until you read about factories though)
-// !!! and signatures maybe?
 
 /**
 * Superclass for everything that produces a sound. The instance variables include only the most basic characteristics of a sound:
@@ -65,13 +64,23 @@ public class Sound{
         this.isActive  = true;
     }
     
+    /**
+    * Copy constructor. Use this to make copies of Sound objects. 
+    * @param newSound The Sound object to be copied.
+    */
+    public Sound(Sound newSound){
+        this(newSound.getFrequency(), newSound.getVelocity(), newSound.getAttack(), newSound.getDecay(), 
+        	 newSound.getSustain(),   newSound.getRelease());
+        isActive = newSound.getIsActive();
+    }
+    
     //===================================================================
-    //                          Methods
+    //                           Methods
     //===================================================================
  
     
     //===================================================================
-    //                          Setters
+    //                           Setters
     //===================================================================
     
     public void setFrequency(double frequency){
