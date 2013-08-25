@@ -40,10 +40,19 @@ public class Harmony extends ChordGroup{
 	}
 	
 	//===================================================================
-    //                          Getters
+    //                           Getters
     //===================================================================
 	
 	public String getName(){
 		return name;
+	}
+	
+	//===================================================================
+    //                       Special Getters
+    //===================================================================
+	
+	@Override
+	public String toString(){
+		return "name: " + name + " chords: " + getChordsAsString() + " size: " + getSize();
 	}
 }   
