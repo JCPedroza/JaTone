@@ -41,8 +41,10 @@ public class Test{
 	Scale        aScale4      = new Scale(aStrNoteA);
 	List<Chord>  aChList      = new ArrayList<Chord>(Arrays.asList(aChord1, aChord2));
 	ChordGroup   aChG1        = new ChordGroup(aChList);
+	Harmony      aHarmony1    = new Harmony(aChList, "a harmony");
 	// Copy constructor tests
 	ChordGroup   aChG2        = new ChordGroup(aChG1);
+	Harmony      aHarmony2    = new Harmony(aHarmony1);
 	// End of copy constructor declarations
 	// Instances
 	Process      aProcess   = new Process();
@@ -68,6 +70,7 @@ public class Test{
 		assertEquals(aChorda.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E"}));
 		assertEquals(aSoundA.toString(), aSoundB.toString());
 		assertEquals(aNoteA.toString(), aNoteXX.toString());
+		assertEquals(aHarmony1.toString(), aHarmony2.toString());
 		assertEquals(aChG1.toString(), aChG2.toString());
 		
 		// Chord invert(), NoteGoup rotateNotes(), and originalNotes: aChord3 initial state = C E G
@@ -105,6 +108,7 @@ public class Test{
 		aNoteGroup1.setSecondaryName("a secondary name"); // sets a secondary name for aNoteGroup1
 		assertEquals(aNoteGroup1.toString(), "size: 3 notes: [A, C, E] originalNotes: [A, C, E]name: ACE secondaryName: a secondary name");
 		assertEquals(aChG1.toString(), "chords: [Am, ACE] size: 2");
+		assertEquals(aHarmony1.toString(), "name: a harmony chords: [Am, ACE] size: 2");
 		
 		// Process Tests -------------------------------
 		
