@@ -128,7 +128,7 @@ public class NoteGroup{
     // an add/remove note dynamic. 
     public void setNotes(List<Note> newNotes){
     	notes = newNotes;
-    	size  = newNotes.size();
+    	size  = notes.size();
     }
     
     public void setName(String newName){
