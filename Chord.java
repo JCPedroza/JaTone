@@ -1,3 +1,5 @@
+// !!! implement toStrng when this has a different variable than NoteGroup
+
 import java.util.*;
 
 public class Chord extends NoteGroup{
