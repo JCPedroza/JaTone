@@ -23,6 +23,14 @@ public class Harmony extends ChordGroup{
 		this(newChordList, "none");
 	}
 	
+	/**
+   	* Copy constructor. Use this to make copies of Harmony objects. 
+    * @param newHarmony The Harmony object to be copied.
+    */
+	public Harmony(Harmony newHarmony){
+		this(newHarmony.getChords(), newHarmony.getName());
+	}
+	
 	//===================================================================
     //                            Setters 
     //===================================================================
