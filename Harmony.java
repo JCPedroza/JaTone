@@ -1,3 +1,5 @@
+// !!! implement cases for String[][] as input?
+
 import java.util.*;
 
 public class Harmony extends ChordGroup{
@@ -12,13 +14,11 @@ public class Harmony extends ChordGroup{
     //                        Constructors
     //===================================================================
 	
-	// !!! implement cases for String[][] as input?
-	// List String -> Harmony
 	public Harmony(List<Chord> newChordList, String newName){
 		super(newChordList);
 		name = newName;
 	}
-	// List -> Harmony
+
 	public Harmony(List<Chord> newChordList){
 		this(newChordList, "none");
 	}
