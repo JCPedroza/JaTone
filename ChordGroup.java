@@ -1,5 +1,10 @@
+// !!! more constructors, but read about factories first
+
 import java.util.*;
 
+/**
+* Represents a group of chords.
+*/
 public class ChordGroup{
 	
 	//===================================================================
@@ -27,11 +32,12 @@ public class ChordGroup{
 	}
 	
 	//===================================================================
-    //                          Setters
+    //                            Setters
     //===================================================================
 	
-	public int getSize(){
-		return size;
+	public void setChords(List<Chord> newChords){
+		chords = newChords;
+		size   = chords.size();
 	}
 	
 	//===================================================================
@@ -42,11 +48,19 @@ public class ChordGroup{
 		return chords;
 	}
 	
+	public int getSize(){
+		return size;
+	}
+	
 	//===================================================================
     //                       Special Getters
     //===================================================================
 	
-	// Returns names of the chords as a String
+	
+	/**
+	* Builds a String with the names of the chords in the chords list.
+	* @return Names of the chords as a String.
+	*/
     public String getChordsAsString(){
         List<String> noteList = new ArrayList<String>();
         for (Chord e : chords){
@@ -56,7 +70,8 @@ public class ChordGroup{
     }
     
     /**
-    * @return The state of the ChordGroup as a string.
+    * Builds a String with the values of the object.
+    * @return The state of the ChordGroup as a String.
     */
     @Override
     public String toString(){
