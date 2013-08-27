@@ -2,37 +2,44 @@
 
 import java.util.*;
 
+/**
+* Group of Note objects with melodic dynamics (like a succession of notes). 
+*/ 
 public class Scale extends NoteGroup{
-	
+		
 	//===================================================================
     //                       Constructors
     //===================================================================
 	
-    // NoteList, String -> Scale
+
     public Scale(List<Note> newNotes, String newName){
         super(newNotes, newName);
     }
-    // NoteList -> Scale
+
     public Scale(List<Note> newNotes){    
         super(newNotes);
     }
-    // NoteArray, String -> Scale
+
     public Scale(Note[] newNotes, String newName){
         super(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
-    // NoteArray -> Scale
+
     public Scale(Note[] newNotes){
         super(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
-    // StringArray, String -> Scale
+
     public Scale(String[] newNotes, String newName){
     	super(newNotes, newName);
     }
-    // StringArray -> Scale
+
     public Scale(String[] newNotes){
     	super(newNotes);
     }
-    // Copy constructor
+    
+    /**
+    * Copy constructor. Use this to make copies of Scale objects. 
+    * @param newScale The Scale object to be copied.
+    */
     public Scale(Scale newScale){
     	super(newScale);
     }
@@ -41,13 +48,20 @@ public class Scale extends NoteGroup{
     //                          Special Setters
     //===================================================================
     
-    // rotate(): changes the order of the notes, sending (depth) number of notes from the end of the list to
-    // the start of the list. If the depth number is negative, it sends (depth) number of notes from the start
-    // of the list to the end of the list.
+    /**
+    * Changes the order of the notes, sending (depth) number of notes from the end of the list to
+    * the start of the list. If the depth number is negative, it sends (depth) number of notes from the start
+    * of the list to the end of the list.
+    * @param depth Number of notes to be moved. Positive integer sends note(s) from the end of the Chord's note 
+    * array to the start. Negative integer sends note(s) from the start of the Chord's note array to the end.
+    */
     public void rotate(int depth){
     	rotateNotes(depth);
     }
-    // rotate(): no parameter case; uses 1 as default value.
+
+    /**
+    * Same as rotate(1).
+    */
     public void rotate(){
     	rotateNotes(1);
     }
