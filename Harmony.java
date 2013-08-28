@@ -1,7 +1,11 @@
 // !!! implement cases for String[][] as input?
+// !!! needs more constructors, but read about factories first
 
 import java.util.*;
 
+/**
+* Represents a group of chords that form a harmonic system.
+*/
 public class Harmony extends ChordGroup{
     
 	//===================================================================
@@ -51,6 +55,10 @@ public class Harmony extends ChordGroup{
     //                       Special Getters
     //===================================================================
 	
+	/**
+	* Builds a String with the values of the object.
+	* @return The state of the Harmony as a String.
+	*/
 	@Override
 	public String toString(){
 		return "name: " + name + " chords: " + getChordsAsString() + " size: " + getSize();
