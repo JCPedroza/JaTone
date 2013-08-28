@@ -98,7 +98,7 @@ public class Test{
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"E", "G", "C"}));
 		aChord3.firstInversion();
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"G", "C", "E"}));
-		aChord3.noInversion();
+		aChord3.reset();
 		assertEquals(aChord3.getNotesAsString(),         Arrays.toString(new String[] {"C", "E", "G"}));
 		
 		// toString(); tests
@@ -123,18 +123,12 @@ public class Test{
 
         
 		// scalize()
-		assertEquals(aProcess.scalize(aNoteA, formulas.getAeolian()).getNotesAsString(),
-				     Arrays.toString(new String[] {"A", "B", "C", "D", "E", "F", "G"}));
-		assertEquals(aProcess.scalize(aNoteA, formulas.getAeolian(), aPool2).getNotesAsString(),
-			         Arrays.toString(new String[] {"A", "B", "C", "D", "E", "F", "G"}));
-		assertEquals(aProcess.scalize(aNoteC, formulas.getIonian()).getNotesAsString(),
-			         Arrays.toString(new String[] {"C", "D", "E", "F", "G", "A", "B"}));
-		assertEquals(aProcess.scalize(aNoteC, formulas.getIonian(), aPool).getNotesAsString(),
-		             Arrays.toString(new String[] {"C", "A", "C", "D", "B", "D", "B"}));
-		assertEquals(aProcess.scalize("F", formulas.getIonian()).getNotesAsString(),
-				     Arrays.toString(new String[] {"F", "G", "A", "Bb", "C", "D", "E"}));
-		assertEquals(aProcess.scalize("D", formulas.getAeolian(), aPool2).getNotesAsString(),
-				     Arrays.toString(new String[] {"D", "E", "F", "G", "A", "Bb", "C"}));
+		assertEquals(aProcess.scalize(aNoteA, formulas.getAeolian()).getNotesAsString(),         "[A, B, C, D, E, F, G]");	     
+		assertEquals(aProcess.scalize(aNoteA, formulas.getAeolian(), aPool2).getNotesAsString(), "[A, B, C, D, E, F, G]");	     
+		assertEquals(aProcess.scalize(aNoteC, formulas.getIonian()).getNotesAsString(),          "[C, D, E, F, G, A, B]");	     
+		assertEquals(aProcess.scalize(aNoteC, formulas.getIonian(), aPool).getNotesAsString(),   "[C, A, C, D, B, D, B]");
+		assertEquals(aProcess.scalize("F", formulas.getIonian()).getNotesAsString(),             "[F, G, A, Bb, C, D, E]");
+		assertEquals(aProcess.scalize("D", formulas.getAeolian(), aPool2).getNotesAsString(),    "[D, E, F, G, A, Bb, C]");
 		
 		// harmonize() & scalize()
 		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteA, formulas.getAeolian())).getChordsAsString(), 
