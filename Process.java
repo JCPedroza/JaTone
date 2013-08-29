@@ -1,5 +1,10 @@
+// put some of these inside classes?
+
 import java.util.*;
 
+/**
+* Contains operations.
+*/
 public class Process{
 	
 	// Used as default pool (equal temperament 12 semi-tones):
@@ -12,6 +17,13 @@ public class Process{
 	// !!! Throw error when note is not found in pool
 	// ---------------------------------------------------------------------------------------------
 	// stepCount: Note, Note, List -> int 
+	/**
+	* 
+	* @param note1
+	* @param note2
+	* @param pool Pool of notes.
+	* @return Distance between two notes.
+	*/
 	public int stepCount(Note note1, Note note2, List<String> pool){
 	    int result = pool.indexOf(note2.getName()) - pool.indexOf(note1.getName());
 		if (result > 0){
@@ -85,8 +97,8 @@ public class Process{
 	// default depth is 1 (triad)
 	// Scale or String[], int -> Harmony (a group of chords)
 	// !!! should I be implementing different type of outputs depending on the input?, implement max depth? 
-	// !!! implement default depth, can this method be refactored using recursive dynamics instead of ifs?
-	// !!! implement more possible cases and depths !!! throw error if depth < 0 or > 5
+	// !!! can this method be refactored using recursive dynamics instead of ifs?
+	// !!! throw error if depth < 0 or > 5
 	// !!! List<string> can't be implemented atm, until NoteGtoup.java can handle it
 	// ---------------------------------------------------------------------------------------------
 	// harmonize: Scale, int -> Harmony
@@ -157,5 +169,4 @@ public class Process{
 	public Harmony harmonize(Note[] scale){
 		return harmonize(new Scale(scale), 1);
 	}
-	//!!! implement with other possible inputs based on possible input types for NoteGroup constructor
 }
