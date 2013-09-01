@@ -13,17 +13,10 @@ public class Process{
 	
 	// ---------------------------------------------------------------------------------------------
 	// stepCount: returns the distance between two notes using an input pool of type List
-	// Note, Note, optional: List or String[] -> int or String, String, optional: List or String[]-> int
 	// !!! Throw error when note is not found in pool
 	// ---------------------------------------------------------------------------------------------
 	// stepCount: Note, Note, List -> int 
-	/**
-	* 
-	* @param note1
-	* @param note2
-	* @param pool Pool of notes.
-	* @return Distance between two notes.
-	*/
+
 	public int stepCount(Note note1, Note note2, List<String> pool){
 	    int result = pool.indexOf(note2.getName()) - pool.indexOf(note1.getName());
 		if (result > 0){
@@ -97,12 +90,15 @@ public class Process{
 	// default depth is 1 (triad)
 	// Scale or String[], int -> Harmony (a group of chords)
 	// !!! should I be implementing different type of outputs depending on the input?, implement max depth? 
-	// !!! can this method be refactored using recursive dynamics instead of ifs?
+	// !!! can this method be refactored using recursive dynamics instead of ifs? Yes it can, do it.
 	// !!! throw error if depth < 0 or > 5
 	// !!! List<string> can't be implemented atm, until NoteGtoup.java can handle it
 	// ---------------------------------------------------------------------------------------------
 	// harmonize: Scale, int -> Harmony
-	public Harmony harmonize(Scale scale, int depth){
+	public Harmony harmonize(Scale scale, int depth) throws IllegalArgumentException{
+		if (depth < 1) {
+			throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
+		}
 		List<Chord> chordList     = new ArrayList<Chord>();
 		int         scaleSize = scale.getSize();
 		if (depth == 1){
