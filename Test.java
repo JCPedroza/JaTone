@@ -121,7 +121,6 @@ public class Test{
 		assertEquals(aProcess.stepCount(aNoteA, aNoteC, aPool), 2);
 		assertEquals(aProcess.stepCount(aNoteA, aNoteC, aPool2), 3);
 
-        
 		// scalize()
 		assertEquals(aProcess.scalize(aNoteA, formulas.getAeolian()).getNotesAsString(),         "[A, B, C, D, E, F, G]");	     
 		assertEquals(aProcess.scalize(aNoteA, formulas.getAeolian(), aPool2).getNotesAsString(), "[A, B, C, D, E, F, G]");	     
@@ -133,13 +132,13 @@ public class Test{
 		// harmonize() & scalize()
 		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteA, formulas.getAeolian())).getChordsAsString(), 
 				     Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
-		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.getIonian()), 2).getChordsAsString(), 
+		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.getIonian()), 4).getChordsAsString(), 
 				     Arrays.toString(new String[] {"CEGB", "DFAC", "EGBD", "FACE", "GBDF", "ACEG", "BDFA"}));
-		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.getIonian()), 3).getChordsAsString(),
-				     Arrays.toString(new String[] {"CEGBD", "DFACE", "EGBDF", "FACEG", "GBDFA", "ACEGB", "BDFAC"}));
-		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.getIonian()), 4).getChordsAsString(),
-			         Arrays.toString(new String[] {"CEGBDF", "DFACEG", "EGBDFA", "FACEGB", "GBDFAC", "ACEGBD", "BDFACE"}));
 		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.getIonian()), 5).getChordsAsString(),
+				     Arrays.toString(new String[] {"CEGBD", "DFACE", "EGBDF", "FACEG", "GBDFA", "ACEGB", "BDFAC"}));
+		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.getIonian()), 6).getChordsAsString(),
+			         Arrays.toString(new String[] {"CEGBDF", "DFACEG", "EGBDFA", "FACEGB", "GBDFAC", "ACEGBD", "BDFACE"}));
+		assertEquals(aProcess.harmonize(aProcess.scalize(aNoteC, formulas.getIonian()), 7).getChordsAsString(),
 		             Arrays.toString(new String[] {"CEGBDFA", "DFACEGB", "EGBDFAC", "FACEGBD", "GBDFACE", "ACEGBDF", "BDFACEG"}));
 		
 		// harmonize()
@@ -147,9 +146,9 @@ public class Test{
 				     Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
 		assertEquals(aProcess.harmonize(aNoteList2).getChordsAsString(),
 				     Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
-		assertEquals(aProcess.harmonize(aNoteList2, 2).getChordsAsString(),
+		assertEquals(aProcess.harmonize(aNoteList2, 4).getChordsAsString(),
 			         Arrays.toString(new String[] {"ACEG", "BDFA", "CEGB", "DFAC", "EGBD", "FACE", "GBDF"}));
-		assertEquals(aProcess.harmonize(aNoteArray2, 2).getChordsAsString(),
+		assertEquals(aProcess.harmonize(aNoteArray2, 4).getChordsAsString(),
 		             Arrays.toString(new String[] {"ACEG", "BDFA", "CEGB", "DFAC", "EGBD", "FACE", "GBDF"}));
 		assertEquals(aProcess.harmonize(aNoteArray2).getChordsAsString(),
 		             Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));

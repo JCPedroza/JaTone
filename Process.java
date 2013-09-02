@@ -95,51 +95,71 @@ public class Process{
 	// !!! List<string> can't be implemented atm, until NoteGtoup.java can handle it
 	// ---------------------------------------------------------------------------------------------
 	// harmonize: Scale, int -> Harmony
-	public Harmony harmonize(Scale scale, int depth) throws IllegalArgumentException{
-		if (depth < 1) {
-			throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
-		}
-		List<Chord> chordList     = new ArrayList<Chord>();
-		int         scaleSize = scale.getSize();
-		if (depth == 1){
-			for (int e = 0; e < scaleSize; e++){
-				chordList.add(new Chord( new Note[]{scale.getNotes().get(e), scale.getNotes().get((e + 2) % scaleSize), 
-						                            scale.getNotes().get((e + 4) % scaleSize)}));
+//	public Harmony harmonize(Scale scale, int depth) throws IllegalArgumentException{
+//		if (depth < 1) {
+//			throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
+//		}
+//		List<Chord> chordList     = new ArrayList<Chord>();
+//		int         scaleSize = scale.getSize();
+//		if (depth == 1){
+//			for (int e = 0; e < scaleSize; e++){
+//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e), scale.getNotes().get((e + 2) % scaleSize), 
+//						                            scale.getNotes().get((e + 4) % scaleSize)}));
+//			}
+//		}
+//		else if (depth == 2){
+//			for (int e = 0; e < scaleSize; e++){
+//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
+//						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize)}));
+//			}
+//		}
+//		else if (depth == 3){
+//			for (int e = 0; e < scaleSize; e++){
+//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
+//						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
+//						                            scale.getNotes().get((e + 8) % scaleSize)}));
+//			}
+//		}
+//		else if (depth == 4){
+//			for (int e = 0; e < scaleSize; e++){
+//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
+//						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
+//						                            scale.getNotes().get((e + 8) % scaleSize), scale.getNotes().get((e + 10) % scaleSize)}));
+//			}
+//		}
+//		else if (depth == 5){
+//			for (int e = 0; e < scaleSize; e++){
+//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
+//						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
+//						                            scale.getNotes().get((e + 8) % scaleSize), scale.getNotes().get((e + 10) % scaleSize),
+//						                            scale.getNotes().get((e + 12) % scaleSize)}));
+//			}
+//		}
+//		return new Harmony(chordList);
+//	}
+	
+	public Harmony harmonize(Scale scale, int depth){
+		if (depth < 1) throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
+			
+	
+		List<Chord> chordList   = new ArrayList<Chord>();
+		List<Note>  notes       = scale.getNotes();
+		int         scaleSize   = scale.getSize();
+				
+		for (int i = 0; i < scaleSize; i++){
+			Note[] aNoteArray = new Note[depth];
+			for (int j = 0, k = 0; j < depth; j++, k += 2){
+				aNoteArray[j] = notes.get((k + i) % scaleSize);
 			}
+			chordList.add(new Chord(aNoteArray));
 		}
-		else if (depth == 2){
-			for (int e = 0; e < scaleSize; e++){
-				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
-						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize)}));
-			}
-		}
-		else if (depth == 3){
-			for (int e = 0; e < scaleSize; e++){
-				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
-						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
-						                            scale.getNotes().get((e + 8) % scaleSize)}));
-			}
-		}
-		else if (depth == 4){
-			for (int e = 0; e < scaleSize; e++){
-				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
-						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
-						                            scale.getNotes().get((e + 8) % scaleSize), scale.getNotes().get((e + 10) % scaleSize)}));
-			}
-		}
-		else if (depth == 5){
-			for (int e = 0; e < scaleSize; e++){
-				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
-						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
-						                            scale.getNotes().get((e + 8) % scaleSize), scale.getNotes().get((e + 10) % scaleSize),
-						                            scale.getNotes().get((e + 12) % scaleSize)}));
-			}
-		}
+		
 		return new Harmony(chordList);
 	}
+	
 	// harmonize: Scale -> Harmony
 	public Harmony harmonize(Scale scale){
-		return harmonize(scale, 1);
+		return harmonize(scale, 3);
 	}
     // harmonize: StringArray, int -> Harmony
 	public Harmony harmonize(String[] scale, int depth){
@@ -147,7 +167,7 @@ public class Process{
 	}
 	// harmonize: StringArray -> Harmony
 	public Harmony harmonize(String[] scale){
-		return harmonize(new Scale(scale), 1);
+		return harmonize(new Scale(scale), 3);
 	}
 	// harmonize: NoteList, int -> Harmony
 	public Harmony harmonize(List<Note> scale, int depth){
@@ -155,7 +175,7 @@ public class Process{
 	}
 	// harmonize: NoteList -> Harmony
 	public Harmony harmonize(List<Note> scale){
-		return harmonize(new Scale(scale), 1);
+		return harmonize(new Scale(scale), 3);
 	}
 	// harmonize: NoteArray, int -> Harmony
 	public Harmony harmonize(Note[] scale, int depth){
@@ -163,6 +183,6 @@ public class Process{
 	}
 	// harmonize: NoteArray -> Harmony
 	public Harmony harmonize(Note[] scale){
-		return harmonize(new Scale(scale), 1);
+		return harmonize(new Scale(scale), 3);
 	}
 }
