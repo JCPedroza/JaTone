@@ -84,68 +84,24 @@ public class Process{
 		return scalize(new Note(note), formula, et12Pool);
 	}
 	
-	// ---------------------------------------------------------------------------------------------
-	// harmonize: forms chords derived from the input Scale, using superimposed thirds
-	// depth 1 gives triads, depth 2 gives 7th chords, depth 3 gives 9th chords, etc
+
 	// default depth is 1 (triad)
 	// Scale or String[], int -> Harmony (a group of chords)
-	// !!! should I be implementing different type of outputs depending on the input?, implement max depth? 
-	// !!! can this method be refactored using recursive dynamics instead of ifs? Yes it can, do it.
-	// !!! throw error if depth < 0 or > 5
+	// !!! should I be implementing different type of outputs depending on the input?
 	// !!! List<string> can't be implemented atm, until NoteGtoup.java can handle it
-	// ---------------------------------------------------------------------------------------------
-	// harmonize: Scale, int -> Harmony
-//	public Harmony harmonize(Scale scale, int depth) throws IllegalArgumentException{
-//		if (depth < 1) {
-//			throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
-//		}
-//		List<Chord> chordList     = new ArrayList<Chord>();
-//		int         scaleSize = scale.getSize();
-//		if (depth == 1){
-//			for (int e = 0; e < scaleSize; e++){
-//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e), scale.getNotes().get((e + 2) % scaleSize), 
-//						                            scale.getNotes().get((e + 4) % scaleSize)}));
-//			}
-//		}
-//		else if (depth == 2){
-//			for (int e = 0; e < scaleSize; e++){
-//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
-//						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize)}));
-//			}
-//		}
-//		else if (depth == 3){
-//			for (int e = 0; e < scaleSize; e++){
-//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
-//						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
-//						                            scale.getNotes().get((e + 8) % scaleSize)}));
-//			}
-//		}
-//		else if (depth == 4){
-//			for (int e = 0; e < scaleSize; e++){
-//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
-//						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
-//						                            scale.getNotes().get((e + 8) % scaleSize), scale.getNotes().get((e + 10) % scaleSize)}));
-//			}
-//		}
-//		else if (depth == 5){
-//			for (int e = 0; e < scaleSize; e++){
-//				chordList.add(new Chord( new Note[]{scale.getNotes().get(e),                   scale.getNotes().get((e + 2) % scaleSize), 
-//						                            scale.getNotes().get((e + 4) % scaleSize), scale.getNotes().get((e + 6) % scaleSize), 
-//						                            scale.getNotes().get((e + 8) % scaleSize), scale.getNotes().get((e + 10) % scaleSize),
-//						                            scale.getNotes().get((e + 12) % scaleSize)}));
-//			}
-//		}
-//		return new Harmony(chordList);
-//	}
-	
+	/**
+	* Forms chords derived from the input scale, using superimposed thirds.
+	* Depth 3 gives triads, depth 2 gives 7th chords, depth 3 gives 9th chords, etc.
+	* @param scale Scale object used as reference to build the chords.
+	* @param depth Number of notes per chord. 
+	* @return Chords derived from the input scale, using superimposed thirds, as 
+	* an Harmony object. 
+	*/
 	public Harmony harmonize(Scale scale, int depth){
 		if (depth < 1) throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
-			
-	
 		List<Chord> chordList   = new ArrayList<Chord>();
 		List<Note>  notes       = scale.getNotes();
-		int         scaleSize   = scale.getSize();
-				
+		int         scaleSize   = scale.getSize();	
 		for (int i = 0; i < scaleSize; i++){
 			Note[] aNoteArray = new Note[depth];
 			for (int j = 0, k = 0; j < depth; j++, k += 2){
@@ -153,15 +109,18 @@ public class Process{
 			}
 			chordList.add(new Chord(aNoteArray));
 		}
-		
 		return new Harmony(chordList);
 	}
 	
-	// harmonize: Scale -> Harmony
+	/**
+	* Forms triads derived from the input scale, using superimposed thirds.
+	* @param  Scale object used as reference to build the chords.
+	* @return Triads derived from the input scale as a Harmony object. 
+	*/
 	public Harmony harmonize(Scale scale){
 		return harmonize(scale, 3);
 	}
-    // harmonize: StringArray, int -> Harmony
+   
 	public Harmony harmonize(String[] scale, int depth){
 		return harmonize(new Scale(scale), depth);
 	}
