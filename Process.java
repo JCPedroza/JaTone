@@ -84,10 +84,7 @@ public class Process{
 		return scalize(new Note(note), formula, et12Pool);
 	}
 	
-
-	// default depth is 1 (triad)
 	// Scale or String[], int -> Harmony (a group of chords)
-	// !!! should I be implementing different type of outputs depending on the input?
 	// !!! List<string> can't be implemented atm, until NoteGtoup.java can handle it
 	/**
 	* Forms chords derived from the input scale, using superimposed thirds.
@@ -95,21 +92,22 @@ public class Process{
 	* @param scale Scale object used as reference to build the chords.
 	* @param depth Number of notes per chord. 
 	* @return Chords derived from the input scale, using superimposed thirds, as 
-	* an Harmony object. 
+	* a Harmony object. 
+	* @throws IllegalArgumentException Depth must be greater than 0.
 	*/
-	public Harmony harmonize(Scale scale, int depth){
+	public Harmony harmonize(Scale scale, int depth) throws IllegalArgumentException{
 		if (depth < 1) throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
-		List<Chord> chordList   = new ArrayList<Chord>();
-		List<Note>  notes       = scale.getNotes();
-		int         scaleSize   = scale.getSize();	
-		for (int i = 0; i < scaleSize; i++){
-			Note[] aNoteArray = new Note[depth];
-			for (int j = 0, k = 0; j < depth; j++, k += 2){
-				aNoteArray[j] = notes.get((k + i) % scaleSize);
+		List<Chord> chordList   = new ArrayList<Chord>(); // Used in the return object constructor.
+		List<Note>  notes       = scale.getNotes();  
+		int         scaleSize   = scale.getSize(); // To avoid computing it several times in loop.
+		for (int i = 0; i < scaleSize; i++){  // For every note in the scale:
+			Note[] aNoteArray = new Note[depth]; // Build a note array (a chord):
+			for (int j = 0, k = 0; j < depth; j++, k += 2){     // With that note plus a number 
+				aNoteArray[j] = notes.get((k + i) % scaleSize); // of superimposed thirds (depth).
 			}
-			chordList.add(new Chord(aNoteArray));
+			chordList.add(new Chord(aNoteArray)); // Add that chord to chordList.
 		}
-		return new Harmony(chordList);
+		return new Harmony(chordList); // Use chordList to construct a Harmony object.
 	}
 	
 	/**
@@ -120,11 +118,25 @@ public class Process{
 	public Harmony harmonize(Scale scale){
 		return harmonize(scale, 3);
 	}
-   
-	public Harmony harmonize(String[] scale, int depth){
+    
+	/**
+	* Forms chords derived from the input scale, using superimposed thirds.
+	* Depth 3 gives triads, depth 2 gives 7th chords, depth 3 gives 9th chords, etc.
+	* @param scale String array with each item in the array representing a note in a scale.
+	* @param depth Number of notes per chord.
+	* @return Chords derived from the input scale, using superimposed thirds, as 
+	* a Harmony object. 
+	* @throws IllegalArgumentException Depth must be greater than 0.
+	*/
+	public Harmony harmonize(String[] scale, int depth)throws IllegalArgumentException{
 		return harmonize(new Scale(scale), depth);
 	}
-	// harmonize: StringArray -> Harmony
+	
+	/**
+	* Forms triads derived from the input scale, using superimposed thirds.
+	* @param scale  String array with each item in the array representing a note in a scale.
+	* @return Triads derived from the input scale as a Harmony object.
+	*/
 	public Harmony harmonize(String[] scale){
 		return harmonize(new Scale(scale), 3);
 	}
