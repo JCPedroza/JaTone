@@ -20,3 +20,5 @@ frequency
 - copy constructors (to make copies of classes), and javadoc them.
 - default constructors that take no arguments (until you read about factories)
 - organize everything in packages (asap)
+- consider implementing java generics (<Item>) like seen in Algorithms 1 Stanford 
+to handle different types in classes
