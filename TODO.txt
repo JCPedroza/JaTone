@@ -22,3 +22,5 @@ frequency
 - organize everything in packages (asap)
 - consider implementing java generics (<Item>) like seen in Algorithms 1 Stanford 
 to handle different types in classes
+- consider implementing Comparable interface for your user-defined types, as 
+suggested in sorting introduction
