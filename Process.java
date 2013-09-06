@@ -7,7 +7,9 @@ import java.util.*;
 */
 public class Process{
 	
-	// Used as default pool (equal temperament 12 semi-tones):
+	/**
+	* Used as default pool (equal temperament 12 semi-tones).
+	*/
 	private List<String> et12Pool   = Arrays.asList("Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G");
 	private int          et12Length = 12;
 	
@@ -47,19 +49,20 @@ public class Process{
 		return stepCount(new Note(note1), new Note(note2), new ArrayList<String>(Arrays.asList(pool)));
 	}
 	
-	// ---------------------------------------------------------------------------------------------
-	// scalize: returns a Scale object derived from the formula applied to the pool with note as root,
-	// default pool is et12Pool. 
-	// Note or String, int[], optional: List or String[] -> Scale
-	// !!! throw errors: note was not found in pool
-	// ---------------------------------------------------------------------------------------------
-	// scalize: Note, int[], List -> Scale
+	/**
+	* Builds a Scale object derived from the formula applied to the pool with note as root.
+	* @param note The root note of the scale.
+	* @param formula The formula that will build the scale.
+	* @param pool The pool of notes from which the scale will be derived.
+	* @return A Scale object.
+	*/
 	public Scale scalize(Note note, int[] formula, List<String> pool){
 	    List<Note> noteList     = new ArrayList<Note>();
 	    int        currentIndex = pool.indexOf(note.getName());
+	    int        poolSize     = pool.size();
 	    for (int e : formula){
 	    	noteList.add(new Note(pool.get(currentIndex)));
-	    	currentIndex = (currentIndex + e) % pool.size();
+	    	currentIndex = (currentIndex + e) % poolSize;
 	    }
 	    return new Scale(noteList);  
 	}
@@ -97,17 +100,17 @@ public class Process{
 	*/
 	public Harmony harmonize(Scale scale, int depth) throws IllegalArgumentException{
 		if (depth < 1) throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
-		List<Chord> chordList   = new ArrayList<Chord>(); // Used in the return object constructor.
+		List<Chord> chordList   = new ArrayList<Chord>();       // Used in the return object constructor.
 		List<Note>  notes       = scale.getNotes();  
-		int         scaleSize   = scale.getSize(); // To avoid computing it several times in loop.
-		for (int i = 0; i < scaleSize; i++){  // For every note in the scale:
-			Note[] aNoteArray = new Note[depth]; // Build a note array (a chord):
+		int         scaleSize   = scale.getSize();              // To avoid computing it several times in loop.
+		for (int i = 0; i < scaleSize; i++){                    // For every note in the scale:
+			Note[] aNoteArray = new Note[depth];                // Build a note array (a chord):
 			for (int j = 0, k = 0; j < depth; j++, k += 2){     // With that note plus a number 
 				aNoteArray[j] = notes.get((k + i) % scaleSize); // of superimposed thirds (depth).
 			}
-			chordList.add(new Chord(aNoteArray)); // Add that chord to chordList.
+			chordList.add(new Chord(aNoteArray));               // Add that chord to chordList.
 		}
-		return new Harmony(chordList); // Use chordList to construct a Harmony object.
+		return new Harmony(chordList);                          // Use chordList to construct a Harmony object.
 	}
 	
 	/**
