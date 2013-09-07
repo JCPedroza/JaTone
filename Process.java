@@ -10,27 +10,25 @@ public class Process{
 	/**
 	* Used as default pool (equal temperament 12 semi-tones).
 	*/
-	private List<String> et12Pool   = Arrays.asList("Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G");
-	private int          et12Length = 12;
+	private final List<String> ET12POOL = Arrays.asList("Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G");
 	
-	// ---------------------------------------------------------------------------------------------
-	// stepCount: returns the distance between two notes using an input pool of type List
-	// !!! Throw error when note is not found in pool
-	// ---------------------------------------------------------------------------------------------
-	// stepCount: Note, Note, List -> int 
-
+	// Consider making specific operations in overloaded methods, instead of converting the input and calling the 
+	// main method, seeking performance improvement.
+	/**
+	* Counts the distance between two notes in a pool.
+	* @param note1 A note in the pool.
+	* @param note2 A note in the pool.
+	* @param pool A collection of notes.
+	* @return The distance between two notes in the pool.
+	*/
 	public int stepCount(Note note1, Note note2, List<String> pool){
 	    int result = pool.indexOf(note2.getName()) - pool.indexOf(note1.getName());
-		if (result > 0){
-			return result;
-		}
-		else{
-			return result + et12Length;
-		}
+		if (result > 0) return result;
+		else return result + pool.size();
 	}
 	// stepCount: Note, Note -> int
 	public int stepCount(Note note1, Note note2){
-		return stepCount(note1, note2, et12Pool);
+		return stepCount(note1, note2, ET12POOL);
 	}
 	// stepCount: Note, Note, String[] -> int
 	public int stepCount(Note note1, Note note2, String[] pool){
@@ -38,7 +36,7 @@ public class Process{
 	}
 	// stepCount: String, String -> int
 	public int stepCount(String note1, String note2){
-		return stepCount(new Note(note1), new Note(note2), et12Pool);
+		return stepCount(new Note(note1), new Note(note2), ET12POOL);
 	}
 	// stepCount: String, String, List -> int
 	public int stepCount(String note1, String note2, List<String> pool){
@@ -72,7 +70,7 @@ public class Process{
 	}
 	// scalize: Note, int[] -> Scale
 	public Scale scalize(Note note, int[] formula){
-	    return scalize(note, formula, et12Pool); 
+	    return scalize(note, formula, ET12POOL); 
 	}
 	// scalize: String, int[], List -> Scale
 	public Scale scalize(String note, int[] formula, List<String> pool){
@@ -84,7 +82,7 @@ public class Process{
 	}
 	// scalize: String, int[] -> Scale
 	public Scale scalize(String note, int[] formula){
-		return scalize(new Note(note), formula, et12Pool);
+		return scalize(new Note(note), formula, ET12POOL);
 	}
 	
 	// Scale or String[], int -> Harmony (a group of chords)
@@ -103,11 +101,10 @@ public class Process{
 		List<Chord> chordList   = new ArrayList<Chord>();       // Used in the return object constructor.
 		List<Note>  notes       = scale.getNotes();  
 		int         scaleSize   = scale.getSize();              // To avoid computing it several times in loop.
-		for (int i = 0; i < scaleSize; i++){                    // For every note in the scale:
+		for(int i = 0; i < scaleSize; i++){                     // For every note in the scale:
 			Note[] aNoteArray = new Note[depth];                // Build a note array (a chord):
-			for (int j = 0, k = 0; j < depth; j++, k += 2){     // With that note plus a number 
+			for(int j = 0, k = 0; j < depth; j++, k += 2)       // With that note plus a number 
 				aNoteArray[j] = notes.get((k + i) % scaleSize); // of superimposed thirds (depth).
-			}
 			chordList.add(new Chord(aNoteArray));               // Add that chord to chordList.
 		}
 		return new Harmony(chordList);                          // Use chordList to construct a Harmony object.
