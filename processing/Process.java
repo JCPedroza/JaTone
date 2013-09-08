@@ -1,5 +1,5 @@
 // put some of these inside classes?
-package process;
+package processing;
 
 import sounds.*;
 import java.util.*;
