@@ -63,6 +63,7 @@ public class Note extends Sound{
     //===================================================================
     
      /**
+     * Builds a String with the values of the object.
      * @return The state of the Note as a String.
      */
      @Override

@@ -221,7 +221,8 @@ public class NoteGroup{
     }
     
     /**
-    * @return The state of the NoteGroup as a string.  
+    * Builds a String with the values of the object.
+    * @return The state of the NoteGroup as a String.  
     */
     @Override
     public String toString(){

@@ -148,6 +148,7 @@ public class Sound{
     //===================================================================
     
      /**
+     * Builds a String with the values of the object. 
      * @return The state of the Sound as a String.
      */
      @Override
