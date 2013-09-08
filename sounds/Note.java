@@ -2,6 +2,7 @@
 * A Note is a Sound that belongs to a system, and has a name. Like the notes in the twelve-tone equal temperament system, and the notes
 * in a scale and a chord. 
 */
+package sounds;
 
 public class Note extends Sound{
 

@@ -1,4 +1,5 @@
 // !!! Needs more constructors! (wait until you read about factories though)
+package sounds;
 
 /**
 * Superclass for everything that produces a sound. The instance variables include only the most basic characteristics of a sound:

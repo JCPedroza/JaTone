@@ -1,5 +1,6 @@
 // !!! implement cases for String[][] as input?
 // !!! needs more constructors, but read about factories first
+package sounds;
 
 import java.util.*;
 

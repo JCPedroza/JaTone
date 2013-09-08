@@ -1,4 +1,5 @@
 // !!! implement toStrng when this has a different variable than NoteGroup
+package sounds;
 
 import java.util.*;
 
