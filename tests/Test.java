@@ -1,6 +1,8 @@
 package tests;
 
 import sounds.*;
+import processing.Process;
+
 import static org.junit.Assert.*;
 import java.util.*;
 
