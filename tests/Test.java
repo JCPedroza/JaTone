@@ -1,3 +1,6 @@
+package tests;
+
+import sounds.*;
 import static org.junit.Assert.*;
 import java.util.*;
 
