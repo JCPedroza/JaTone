@@ -162,4 +162,9 @@ public class Test{
 		// :D
 		System.out.println("All test passed! :D :D :D");
 	}
+	
+	public static void main(String[] args){
+		Test theTests = new Test();
+		theTests.runTests();
+	}
 }
