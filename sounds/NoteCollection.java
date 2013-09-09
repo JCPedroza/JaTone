@@ -17,10 +17,10 @@ public class NoteGroup{
 	/**
 	* The number of notes in the NoteGroup.
 	*/
-    private int        size;
+    private int size;
     
     /**
-    * List of the notes in the NoteGroup.
+    * List that holds the collection of notes.
     */
     private List<Note> notes;
     
@@ -35,13 +35,13 @@ public class NoteGroup{
     * The name of the NoteGroup. It's recommended to use this field as the dynamic name field. You might want to change the name of 
     * the NoteGroup as its notes and their order change, forming different chords, scales, etc.
     */
-    private String     name;
+    private String name;
     
     /**
     * The secondary name of the NoteGroup. It's recommended to use this field as the static, or "not-so-dynamic", name field. You
     * might want to keep the object with a secondary name that doesn't change, while the name changes dynamically.
     */
-    private String     secondaryName; 
+    private String secondaryName; 
     
     //===================================================================
     //                          Constructors

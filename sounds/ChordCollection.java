@@ -12,7 +12,14 @@ public class ChordGroup{
     //                      Instance Variables
     //===================================================================
 	
+	/**
+	* List that holds the collection of chords. 
+	*/
 	private List<Chord> chords;
+	
+	/**
+	* Number of chords in the collection of chords. 
+	*/
 	private int         size;
 	
 	//===================================================================
