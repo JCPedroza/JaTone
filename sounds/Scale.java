@@ -6,7 +6,7 @@ import java.util.*;
 /**
 * Group of Note objects with melodic dynamics (like a succession of notes). 
 */ 
-public class Scale extends NoteGroup{
+public class Scale extends NoteCollection{
 		
 	//===================================================================
     //                       Constructors

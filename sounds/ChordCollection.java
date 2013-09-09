@@ -6,7 +6,7 @@ import java.util.*;
 /**
 * Represents a group of chords.
 */
-public class ChordGroup{
+public class ChordCollection{
 	
 	//===================================================================
     //                      Instance Variables
@@ -26,7 +26,7 @@ public class ChordGroup{
     //                        Constructors
     //===================================================================
 	
-	public ChordGroup(List<Chord> newChordList){
+	public ChordCollection(List<Chord> newChordList){
 	    chords = newChordList;
 	    size   = chords.size();
 	}
@@ -35,8 +35,8 @@ public class ChordGroup{
    	* Copy constructor. Use this to make copies of ChordGroup objects. 
     * @param newChordGroup The ChordGroup object to be copied.
     */
-	public ChordGroup(ChordGroup newChordGroup){
-		this(newChordGroup.getChords());
+	public ChordCollection(ChordCollection newChordCollection){
+		this(newChordCollection.getChords());
 	}
 	
 	//===================================================================

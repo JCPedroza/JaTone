@@ -27,14 +27,14 @@ public class Test{
 	String[]     aPool2       = {"Ab", "A", "Bb", "B", "C", "Db", "D", "Eb", "E", "F", "Gb", "G"};
 	List<String> aPool3       = new ArrayList<String>(Arrays.asList(aPool2));
 	// Copy constructor test
-	NoteGroup    aNoteGroup1  = new NoteGroup(aNoteList);
-	NoteGroup    aNoteGroup3  = new NoteGroup(aNoteList2); 
+	NoteCollection  aNoteCollection1  = new NoteCollection(aNoteList);
+	NoteCollection  aNoteCollection3  = new NoteCollection(aNoteList2); 
 	Sound        aSoundB      = new Sound(aSoundA);
 	Note         aNoteXX      = new Note(aNoteA);
 	// End of copy constructor declarations
 	Chord        aChorda      = new Chord(aNoteList);
 	Scale        aScalea      = new Scale(aNoteList2);
-	NoteGroup    aNoteGroup2  = new NoteGroup(aNoteGroup1);
+	NoteCollection    aNoteCollection2  = new NoteCollection(aNoteCollection1);
 	Chord        aChordb      = new Chord(aChorda);
 	Scale        aScaleb      = new Scale(aScalea);
 	Chord        aChord1      = new Chord(aNoteArray, "Am");
@@ -45,10 +45,10 @@ public class Test{
 	Scale        aScale3      = new Scale(aNoteArray);
 	Scale        aScale4      = new Scale(aStrNoteA);
 	List<Chord>  aChList      = new ArrayList<Chord>(Arrays.asList(aChord1, aChord2));
-	ChordGroup   aChG1        = new ChordGroup(aChList);
+	ChordCollection   aChG1   = new ChordCollection(aChList);
 	Harmony      aHarmony1    = new Harmony(aChList, "a harmony");
 	// Copy constructor tests
-	ChordGroup   aChG2        = new ChordGroup(aChG1);
+	ChordCollection   aChG2   = new ChordCollection(aChG1);
 	Harmony      aHarmony2    = new Harmony(aHarmony1);
 	// End of copy constructor declarations
 	// Instances
@@ -67,9 +67,9 @@ public class Test{
 		assertEquals(aChG1.getChordsAsString(), Arrays.toString(new String[] {"Am", "ACE"}));
 		
 		// Copy constructor tests
-		aNoteGroup2.addNote(aNoteB);
-		assertEquals(aNoteGroup2.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E", "B"}));
-		assertEquals(aNoteGroup1.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E"}));
+		aNoteCollection2.addNote(aNoteB);
+		assertEquals(aNoteCollection2.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E", "B"}));
+		assertEquals(aNoteCollection1.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E"}));
 		aChordb.addNote(aNoteC);
 		assertEquals(aChordb.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E", "C"}));
 		assertEquals(aChorda.getNotesAsString(), Arrays.toString(new String[] {"A", "C", "E"}));
@@ -109,9 +109,9 @@ public class Test{
 		// toString(); tests
 		assertEquals(aNoteA.toString(), "name: A frequency: 440.0 velocity: 60 attack: 1 decay: 1 sustain: 127 release: 1 isActive: true");
 		assertEquals(aSoundA.toString(), "frequency: 100.0 velocity: 100 attack: 100 decay: 100 sustain: 100 release: 100 isActive: true");
-		assertEquals(aNoteGroup1.toString(), "size: 3 notes: [A, C, E] originalNotes: [A, C, E]name: ACE secondaryName: null");
-		aNoteGroup1.setSecondaryName("a secondary name"); // sets a secondary name for aNoteGroup1
-		assertEquals(aNoteGroup1.toString(), "size: 3 notes: [A, C, E] originalNotes: [A, C, E]name: ACE secondaryName: a secondary name");
+		assertEquals(aNoteCollection1.toString(), "size: 3 notes: [A, C, E] originalNotes: [A, C, E]name: ACE secondaryName: null");
+		aNoteCollection1.setSecondaryName("a secondary name"); // sets a secondary name for aNoteCollection1
+		assertEquals(aNoteCollection1.toString(), "size: 3 notes: [A, C, E] originalNotes: [A, C, E]name: ACE secondaryName: a secondary name");
 		assertEquals(aChG1.toString(), "chords: [Am, ACE] size: 2");
 		assertEquals(aHarmony1.toString(), "name: a harmony chords: [Am, ACE] size: 2");
 		

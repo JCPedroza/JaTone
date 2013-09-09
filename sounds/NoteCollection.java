@@ -8,7 +8,7 @@ import java.util.*;
 /**
 * Superclass that represents a group of notes, like a chord or a scale.
 */
-public class NoteGroup{
+public class NoteCollection{
     
 	//===================================================================
     //                      Instance Variables
@@ -48,7 +48,7 @@ public class NoteGroup{
     //===================================================================
     
     // NoteList, String -> NoteGroup
-    public NoteGroup(List<Note> newNotes, String newName){
+    public NoteCollection(List<Note> newNotes, String newName){
         notes         = new ArrayList<Note>(newNotes);
         size          = notes.size();
         name          = newName;
@@ -56,22 +56,22 @@ public class NoteGroup{
         originalNotes = new ArrayList<Note>(newNotes);
     }
     // NoteList -> NoteGroup
-    public NoteGroup(List<Note> newNotes){
+    public NoteCollection(List<Note> newNotes){
     	notes         = new ArrayList<Note>(newNotes);
     	size          = notes.size();
     	name          = makeName(notes);
     	originalNotes = new ArrayList<Note>(newNotes);
     }
     // NoteArray, String -> NoteGroup
-    public NoteGroup(Note[] newNotes, String newName){
+    public NoteCollection(Note[] newNotes, String newName){
         this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
     // NoteArray -> NoteGroup
-    public NoteGroup(Note[] newNotes){
+    public NoteCollection(Note[] newNotes){
     	this(new ArrayList<Note>(Arrays.asList(newNotes)));
     }
     // StringArray, String -> NoteGroup
-    public NoteGroup(String[] newNotes, String newName){
+    public NoteCollection(String[] newNotes, String newName){
     	List<Note> noteList = new ArrayList<Note>();
     	for (String e : newNotes){
     		noteList.add(new Note(e));
@@ -82,7 +82,7 @@ public class NoteGroup{
     	originalNotes = new ArrayList<Note>(noteList);
     }
     // StringArray -> NoteGroup
-    public NoteGroup(String[] newNotes){
+    public NoteCollection(String[] newNotes){
     	List<Note> noteList = new ArrayList<Note>();
     	for (String e : newNotes){
     		noteList.add(new Note(e));
@@ -97,9 +97,9 @@ public class NoteGroup{
     * Copy constructor. Use this to make copies of NoteGroup objects. 
     * @param newNoteGroup The NoteGroup object to be copied.
     */
-    public NoteGroup(NoteGroup newNoteGroup){
-        this(newNoteGroup.getNotes(), newNoteGroup.getName());
-        secondaryName = newNoteGroup.getSecondaryName();
+    public NoteCollection(NoteCollection newNoteCollection){
+        this(newNoteCollection.getNotes(), newNoteCollection.getName());
+        secondaryName = newNoteCollection.getSecondaryName();
     }
     
     //===================================================================

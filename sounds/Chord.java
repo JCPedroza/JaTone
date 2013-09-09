@@ -6,7 +6,7 @@ import java.util.*;
 /**
 * Group of Note objects with harmonic dynamics (notes that sound at the same time). 
 */ 
-public class Chord extends NoteGroup{
+public class Chord extends NoteCollection{
     
 	//===================================================================
     //                         Constructors

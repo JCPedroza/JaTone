@@ -7,7 +7,7 @@ import java.util.*;
 /**
 * Represents a group of chords that form a harmonic system.
 */
-public class Harmony extends ChordGroup{
+public class Harmony extends ChordCollection{
     
 	//===================================================================
     //                      Instance Variables
