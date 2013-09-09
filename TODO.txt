@@ -24,3 +24,4 @@ frequency
 to handle different types in classes
 - consider implementing Comparable interface for your user-defined types, as 
 suggested in sorting introduction
+- implement Type... constructors everywhere!

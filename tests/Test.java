@@ -158,6 +158,11 @@ public class Test{
 		assertEquals(aProcess.harmonize(aNoteArray2).getChordsAsString(),
 		             Arrays.toString(new String[] {"ACE", "BDF", "CEG", "DFA", "EGB", "FAC", "GBD"}));
 		
+		// iterators
+		NoteCollection aNoteCollection3  = new NoteCollection(aNoteA, aNoteB, aNoteC);
+		String         aStringForTest1   = "";
+		for (Note e : aNoteCollection3) aStringForTest1 += " " + e.getName();
+		assertEquals(" A B C", aStringForTest1);
 
 		// :D
 		System.out.println("All test passed! :D :D :D");

@@ -5,10 +5,11 @@ import java.util.*;
 // !!! needs to implement a constructor for List<string>, not possible atm
 // is using a generic List as input and then filtering the type on the 
 // same constructor the solution?
+// !!! you might not need a size variable if you use list.size()?
 /**
 * Superclass that represents a group of notes, like a chord or a scale.
 */
-public class NoteCollection{
+public class NoteCollection implements Iterable<Note>{
     
 	//===================================================================
     //                      Instance Variables
@@ -47,6 +48,14 @@ public class NoteCollection{
     //                          Constructors
     //===================================================================
     
+    /**
+    * Builds a NoteCollection object using an arbitrary number of Note objects.
+    * @param newNotes Note objects that will be added to the NoteCollection.
+    */
+    public NoteCollection(Note... newNotes){
+    	this(new ArrayList<Note>(Arrays.asList(newNotes)));
+    }
+    
     // NoteList, String -> NoteGroup
     public NoteCollection(List<Note> newNotes, String newName){
         notes         = new ArrayList<Note>(newNotes);
@@ -66,10 +75,7 @@ public class NoteCollection{
     public NoteCollection(Note[] newNotes, String newName){
         this(new ArrayList<Note>(Arrays.asList(newNotes)), newName);
     }
-    // NoteArray -> NoteGroup
-    public NoteCollection(Note[] newNotes){
-    	this(new ArrayList<Note>(Arrays.asList(newNotes)));
-    }
+
     // StringArray, String -> NoteGroup
     public NoteCollection(String[] newNotes, String newName){
     	List<Note> noteList = new ArrayList<Note>();
@@ -103,7 +109,7 @@ public class NoteCollection{
     }
     
     //===================================================================
-    //                             Methods
+    //                            Methods
     //===================================================================
      
     /**
@@ -119,6 +125,9 @@ public class NoteCollection{
         }
         return returnString;
     }
+    
+    @Override
+    public Iterator<Note> iterator() {return new NoteCollectionIterator();} 
     
     //===================================================================
     //                            Setters 
@@ -228,5 +237,20 @@ public class NoteCollection{
     public String toString(){
     	return "size: "  + size + " notes: "         + getNotesAsString() + " originalNotes: " + getOriginalNotesAsString() +
     			"name: " + name + " secondaryName: " + secondaryName;
+    }
+    
+    //===================================================================
+    //                         Inner Classes
+    //===================================================================
+    
+    private class NoteCollectionIterator implements Iterator<Note>{
+        private int current = 0;
+        private int end     = size - 1;
+        public boolean hasNext() {return current < end;}
+        public void remove()     {throw new UnsupportedOperationException();}
+        
+        public Note next(){
+        	return notes.get(current++);
+        }
     }
 }
