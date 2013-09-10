@@ -1,12 +1,12 @@
 // !!! more constructors, but read about factories first
+// !!! implement iterable
 package sounds;
-
 import java.util.*;
 
 /**
 * Represents a group of chords.
 */
-public class ChordCollection{
+public class ChordCollection implements Iterable<Chord>{
 	
 	//===================================================================
     //                      Instance Variables
@@ -20,7 +20,7 @@ public class ChordCollection{
 	/**
 	* Number of chords in the collection of chords. 
 	*/
-	private int         size;
+	private int size;
 	
 	//===================================================================
     //                        Constructors
@@ -38,6 +38,16 @@ public class ChordCollection{
 	public ChordCollection(ChordCollection newChordCollection){
 		this(newChordCollection.getChords());
 	}
+	
+	//===================================================================
+    //                            Methods
+    //===================================================================
+	/**
+	* Builds a NoteCollectionIterator object, used to iterate through the Note objects.
+	* @return NoteCollectionIterator object.  
+	*/
+	@Override
+	public Iterator<Chord> iterator() {return new ChordCollectionIterator();}
 	
 	//===================================================================
     //                            Setters
@@ -84,5 +94,37 @@ public class ChordCollection{
     @Override
     public String toString(){
     	return "chords: " + getChordsAsString() + " size: " + size;
+    }
+    
+  //===================================================================
+    //                         Inner Classes
+    //===================================================================
+    
+    /**
+    * Iterator class used to iterate through the Chord objects. Implementing Iterator
+    * makes a ChordCollection object support for in loops for(Chord n : NoteCollection).
+    */
+    private class ChordCollectionIterator implements Iterator<Chord>{
+        private int current = 0;
+        
+        /**
+        * Is there an item in the collection next to this one?
+        */
+        @Override
+        public boolean hasNext() {return current < size;}
+        
+        /**
+        * Not supported.
+        */
+        @Override
+        public void remove() {throw new UnsupportedOperationException();}
+        
+        /**
+        * Returns the current item, iterates to the next one.
+        */
+        @Override
+        public Chord next(){
+        	return chords.get(current++);
+        }
     }
 }

@@ -1,5 +1,4 @@
 package sounds;
-
 import java.util.*;
 
 // !!! needs to implement a constructor for List<string>, not possible atm
@@ -126,6 +125,10 @@ public class NoteCollection implements Iterable<Note>{
         return returnString;
     }
     
+    /**
+    * Builds a NoteCollectionIterator object, used to iterate through the Note objects.
+    * @return NoteCollectionIterator object.  
+    */
     @Override
     public Iterator<Note> iterator() {return new NoteCollectionIterator();} 
     
@@ -243,12 +246,29 @@ public class NoteCollection implements Iterable<Note>{
     //                         Inner Classes
     //===================================================================
     
+    /**
+    * Iterator class used to iterate through the Note objects. Implementing Iterator
+    * makes a NoteCollection object support for in loops for(Note n : NoteCollection).
+    */
     private class NoteCollectionIterator implements Iterator<Note>{
         private int current = 0;
-        private int end     = size - 1;
-        public boolean hasNext() {return current < end;}
-        public void remove()     {throw new UnsupportedOperationException();}
         
+        /**
+        * Is there an item in the collection next to this one?
+        */
+        @Override
+        public boolean hasNext() {return current < size;}
+        
+        /**
+        * Not supported.
+        */
+        @Override
+        public void remove() {throw new UnsupportedOperationException();}
+        
+        /**
+        * Returns the current item, iterates to the next one.
+        */
+        @Override
         public Note next(){
         	return notes.get(current++);
         }
