@@ -1,5 +1,4 @@
 // !!! more constructors, but read about factories first
-// !!! implement iterable
 package sounds;
 import java.util.*;
 
@@ -25,6 +24,14 @@ public class ChordCollection implements Iterable<Chord>{
 	//===================================================================
     //                        Constructors
     //===================================================================
+	
+	/**
+	* Builds a ChordCollection object using an arbitrary number of Chord objects.
+    * @param newNotes Note objects that will be added to the NoteCollection.
+	*/
+	public ChordCollection(Chord... newChords){
+	    chords = new ArrayList<Chord>(Arrays.asList(newChords));
+	}
 	
 	public ChordCollection(List<Chord> newChordList){
 	    chords = newChordList;
