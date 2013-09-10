@@ -163,8 +163,12 @@ public class Test{
 		String         aStringForTest1   = "";
 		for (Note e : aNoteCollection3) aStringForTest1 += " " + e.getName();
 		assertEquals(" A B C", aStringForTest1);
+		ChordCollection aChordCollection3 = new ChordCollection(aChord1, aChord2, aChord3);
+		String          aStringForTest2   = "";
+		for (Chord e : aChordCollection3)  aStringForTest2 += " " + e.getName();
+		assertEquals(" Am ACE CEG", aStringForTest2);
 
-		// :D
+		// :
 		System.out.println("All test passed! :D :D :D");
 	}
 	
