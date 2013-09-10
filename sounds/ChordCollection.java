@@ -31,6 +31,7 @@ public class ChordCollection implements Iterable<Chord>{
 	*/
 	public ChordCollection(Chord... newChords){
 	    chords = new ArrayList<Chord>(Arrays.asList(newChords));
+	    size   = chords.size();
 	}
 	
 	public ChordCollection(List<Chord> newChordList){
