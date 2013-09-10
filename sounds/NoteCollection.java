@@ -270,6 +270,7 @@ public class NoteCollection implements Iterable<Note>{
         */
         @Override
         public Note next(){
+            if (!hasNext()) throw new NoSuchElementException();
         	return notes.get(current++);
         }
     }

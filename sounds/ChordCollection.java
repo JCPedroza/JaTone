@@ -132,6 +132,7 @@ public class ChordCollection implements Iterable<Chord>{
         */
         @Override
         public Chord next(){
+            if (!hasNext()) throw new NoSuchElementException();
         	return chords.get(current++);
         }
     }
