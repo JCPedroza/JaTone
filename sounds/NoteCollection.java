@@ -99,8 +99,8 @@ public class NoteCollection implements Iterable<Note>{
     }
 
     /**
-    * Copy constructor. Use this to make copies of NoteGroup objects. 
-    * @param newNoteGroup The NoteGroup object to be copied.
+    * Copy constructor. Use this to make copies of NoteCollection objects. 
+    * @param newNoteGroup The NoteCollection object to be copied.
     */
     public NoteCollection(NoteCollection newNoteCollection){
         this(newNoteCollection.getNotes(), newNoteCollection.getName());

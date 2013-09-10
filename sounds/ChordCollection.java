@@ -39,8 +39,8 @@ public class ChordCollection implements Iterable<Chord>{
 	}
 	
 	/**
-   	* Copy constructor. Use this to make copies of ChordGroup objects. 
-    * @param newChordGroup The ChordGroup object to be copied.
+   	* Copy constructor. Use this to make copies of ChordCollection objects. 
+    * @param newChordGroup The ChordCollection object to be copied.
     */
 	public ChordCollection(ChordCollection newChordCollection){
 		this(newChordCollection.getChords());
