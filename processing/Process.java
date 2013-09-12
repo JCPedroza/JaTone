@@ -102,10 +102,10 @@ public class Process{
 		if (depth < 1) throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
 		List<Chord> chordList   = new ArrayList<Chord>();       // Used in the return object constructor.
 		List<Note>  notes       = scale.getNotes();  
-		int         scaleSize   = scale.getSize();              // To avoid computing it in loop.
+		int         scaleSize   = scale.getSize();              
 		for(int i = 0; i < scaleSize; i++){                     // For every note in the scale:
 			Note[] aNoteArray = new Note[depth];                // Build a note array (a chord):
-			for(int j = 0, k = 0; j < depth; j++, k += 2)       // With that note plus a number 
+			for(int j = 0, k = 0; j < depth; j++, k += 2)       // With that note plus a number -
 				aNoteArray[j] = notes.get((k + i) % scaleSize); // of superimposed thirds (depth).
 			chordList.add(new Chord(aNoteArray));               // Add that chord to chordList.
 		}
