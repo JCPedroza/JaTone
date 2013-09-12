@@ -91,7 +91,7 @@ public class Process{
 	// !!! List<string> can't be implemented atm, until NoteGtoup.java can handle it
 	/**
 	* Forms chords derived from the input scale, using superimposed thirds.
-	* Depth 3 gives triads, depth 2 gives 7th chords, depth 3 gives 9th chords, etc.
+	* Depth 3 gives triads, depth 4 gives 7th chords, depth 5 gives 9th chords, etc.
 	* @param scale Scale object used as reference to build the chords.
 	* @param depth Number of notes per chord. 
 	* @return Chords derived from the input scale, using superimposed thirds, as 
@@ -102,7 +102,7 @@ public class Process{
 		if (depth < 1) throw new IllegalArgumentException("Input depth: " + depth + ". Min depth is 1.");
 		List<Chord> chordList   = new ArrayList<Chord>();       // Used in the return object constructor.
 		List<Note>  notes       = scale.getNotes();  
-		int         scaleSize   = scale.getSize();              // To avoid computing it several times in loop.
+		int         scaleSize   = scale.getSize();              // To avoid computing it in loop.
 		for(int i = 0; i < scaleSize; i++){                     // For every note in the scale:
 			Note[] aNoteArray = new Note[depth];                // Build a note array (a chord):
 			for(int j = 0, k = 0; j < depth; j++, k += 2)       // With that note plus a number 
@@ -123,7 +123,7 @@ public class Process{
     
 	/**
 	* Forms chords derived from the input scale, using superimposed thirds.
-	* Depth 3 gives triads, depth 2 gives 7th chords, depth 3 gives 9th chords, etc.
+	* Depth 3 gives triads, depth 4 gives 7th chords, depth 5 gives 9th chords, etc.
 	* @param scale String array with each item in the array representing a note in a scale.
 	* @param depth Number of notes per chord.
 	* @return Chords derived from the input scale, using superimposed thirds, as 
